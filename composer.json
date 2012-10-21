@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lifestream\\": "src/"
+            "Lifestream\\": ""
         }
     },
     "minimum-stability": "dev"
