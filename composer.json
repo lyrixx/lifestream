@@ -1,0 +1,22 @@
+{
+    "name": "lyrixx/lifestream",
+    "description": "Fetch some feeds in an unified way",
+    "authors": [
+        {
+            "name": "Grégoire Pineau",
+            "email": "lyrixx@lyrixx.info"
+        }
+    ],
+    "require": {
+        "kriswallsmith/buzz": "dev-master"
+    },
+    "require-dev": {
+        "pimple/pimple": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lifestream\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
