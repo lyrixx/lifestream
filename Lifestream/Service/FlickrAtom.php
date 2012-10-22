@@ -2,7 +2,7 @@
 
 namespace Lifestream\Service;
 
-class Flickr extends Atom
+class FlickrAtom extends Atom
 {
 
     const FEED_URL    = 'http://api.flickr.com/services/feeds/photos_public.gne?id=%s@N02&lang=en-us&format=rss_200';

@@ -36,9 +36,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
 
         $xml = new \SimpleXMLElement($content);
 
-        $datas = $this->extractDatas($xml);
-
-        return $datas;
+        return $this->extractDatas($xml);
     }
 
     abstract protected function extractDatas(\SimpleXMLElement $xml);

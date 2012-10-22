@@ -2,13 +2,13 @@
 
 namespace Lifestream\Tests\Sevice;
 
-use Lifestream\Service\Flickr;
+use Lifestream\Service\FlickrAtom as Flickr;
 
-class FlickrTest extends AbstractTest
+class FlickrAtomTest extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $service = new Flickr($this->getBrowser(__DIR__.'/Fixtures/Flickr.xml'), 34871318, 'xavierbriand');
+        $service = new Flickr($this->getBrowser(__DIR__.'/Fixtures/FlickrAtom.xml'), 34871318, 'xavierbriand');
 
         $statuses = $service->getStatuses();
         $this->assertCount(20, $statuses);
