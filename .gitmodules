@@ -1,6 +1,0 @@
-[submodule "demo/Pimple"]
-	path = demo/Pimple
-	url = https://github.com/fabpot/Pimple.git
-[submodule "vendor/Buzz"]
-	path = vendor/Buzz
-	url = https://github.com/kriswallsmith/Buzz.git
