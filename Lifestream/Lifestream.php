@@ -46,11 +46,13 @@ class Lifestream
         return $this;
     }
 
-    public function getService() {
+    public function getService()
+    {
         return $this->service;
     }
 
-    public function setService($service) {
+    public function setService($service)
+    {
         $this->service = $service;
 
         return $this;

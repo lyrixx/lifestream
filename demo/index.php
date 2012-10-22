@@ -41,7 +41,6 @@ $c['lifestream.display'] = $c->protect(function($lifestream, $title = null) {
     echo '<hr>';
 });
 
-
 // Config:
 $lsf = $c['lifestream.factory'];
 

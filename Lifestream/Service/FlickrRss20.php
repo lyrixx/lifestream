@@ -19,6 +19,7 @@ class FlickrRss20 extends Rss20
     protected function formatDatas($datas)
     {
         $date = new \Datetime($datas->pubDate);
+
         return array(
             'text'        => $date->format('Y-m-d'),
             'description' => (string) $datas->description,
