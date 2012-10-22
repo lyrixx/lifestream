@@ -44,17 +44,20 @@ $c['lifestream.display'] = $c->protect(function($lifestream, $title = null) {
 // Config:
 $lsf = $c['lifestream.factory'];
 
-$lsf(new Lifestream\Service\Twitter($c['browser'], 'lyrixx'), 'twitter.lyrixx');
-$lsf(new Lifestream\Service\Github($c['browser'], 'lyrixx'),  'github.lyrixx');
-$lsf(new Lifestream\Service\Rss20($c['browser'], 'http://feeds2.feedburner.com/lyrixblog'), 'rss.lyrixx');
-$lsf(new Lifestream\Service\FlickrRss20($c['browser'], '34871318', 'xavierbriand'), 'flicker.xavierbriand');
+use Lifestream\Service;
+
+$lsf(new Service\Twitter($c['browser'], 'lyrixx'), 'twitter.lyrixx');
+$lsf(new Service\Github($c['browser'], 'lyrixx'),  'github.lyrixx');
+$lsf(new Service\Rss20($c['browser'], 'http://feeds2.feedburner.com/lyrixblog'), 'rss.lyrixx');
+$lsf(new Service\FlickrRss20($c['browser'], '34871318', 'xavierbriand'), 'flicker.xavierbriand');
 
 // $c['delicious.username']    = 'lyrixx86';
 // $c['lastfm.username']       = 'lyrix86';
 
 echo '<h1>LifeStream</h1>';
 
-$c['lifestream.display']($c['my_lifestream.twitter.lyrixx']);
-$c['lifestream.display']($c['my_lifestream.github.lyrixx']);
-$c['lifestream.display']($c['my_lifestream.rss.lyrixx']);
-$c['lifestream.display']($c['my_lifestream.flicker.xavierbriand']);
+$lsd = $c['lifestream.display'];
+$lsd($c['my_lifestream.twitter.lyrixx']);
+$lsd($c['my_lifestream.github.lyrixx']);
+$lsd($c['my_lifestream.rss.lyrixx']);
+$lsd($c['my_lifestream.flicker.xavierbriand']);
