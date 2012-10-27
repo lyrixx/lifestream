@@ -4,8 +4,8 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
 
-title : Jekyll-Boilerplate
-tagline: Jekyll-Boilerplate
+title : Lifestream
+tagline: A stream unifier
 author :
   name : Grégoire Pineau
   email : lyrixx@lyrixx.info
