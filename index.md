@@ -1,7 +1,7 @@
 ---
 layout: page
 title : Lifestream
-tagline: A stream unifier
+tagline: A stream unifier for PHP
 ---
 {% include JB/setup %}
 
@@ -11,8 +11,9 @@ tagline: A stream unifier
 Description
 -----------
 
-Lifestream is a stream manager/unifier for PHP.
-Thanks this lib, you could easily fetch *last datas / status* from differents services :
+Lifestream is a stream unifier for PHP.
+Thanks to this lib, you could easily fetch *last datas / status*
+from differents services:
 
 -  twitter
 -  flickr
@@ -23,12 +24,14 @@ Thanks this lib, you could easily fetch *last datas / status* from differents s
 Demo
 ------
 
-For an extensive demo, look `demo/index.php` file
+For an extensive demo, look
+[demo/index.php](https://github.com/lyrixx/lifestream/blob/master/demo/index.php)
+file.
 
 Filter
 ------
 
-You could filter each status with filters :
+You could filter each status with filters:
 
 -  remove direct mention from twitter stream
 -  remove RT from twitter stream
@@ -38,7 +41,7 @@ You could filter each status with filters :
 Formatter
 ---------
 
-You could format each status with formatters :
+You could format each status with formatters:
 
 -  Transform a text link into an html link
 -  Transform an twitter mention into an html link
@@ -47,13 +50,12 @@ You could format each status with formatters :
 Extensability
 -------------
 
-Of course it's possible to add new Service, Filter or Formatter
+Of course it's possible to add new Service, Filter or Formatter.
 
 Requirements
 ------------
 
 -  PHP 5.3
-
 
 Licence
 -------
