@@ -1,50 +1,31 @@
 LifeStream
 ==========
 
+Lifestream is a stream unifier for PHP.
+
 [![Build Status](https://secure.travis-ci.org/lyrixx/lifestream.png)](http://travis-ci.org/lyrixx/lifestream)
 
-Description
------------
+[**See dedicated page**](http://lyrixx.github.com/lifestream/)
 
-Lifestream is a stream manager/unifier for PHP.
-Thanks this lib, you could easily fetch *last datas / status* from differents services :
+Licence
+-------
 
--  twitter
--  flickr
--  rss feed
--  atom feed
--  github
+    Copyright (C) 2012 Grégoire Pineau
 
-Demo
-------
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
 
-For an extensive demo, look `demo/index.php` file
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
-Filter
-------
-
-You could filter each status with filters :
-
--  remove direct mention from twitter stream
--  remove RT from twitter stream
--  remove status wich contains specific word
--  ...
-
-Formatter
----------
-
-You could format each status with formatters :
-
--  Transform a text link into an html link
--  Transform an twitter mention into an html link
--  ...
-
-Extensability
--------------
-
-Of course it's possible to add new Service, Filter or Formatter
-
-Requirements
-------------
-
--  PHP 5.3
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUTOF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+    IN THE SOFTWARE.
