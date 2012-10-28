@@ -26,7 +26,7 @@
         <a href="../../Lifestream/Service/ServiceInterface.html"><abbr title="Lifestream\Service\ServiceInterface">ServiceInterface</abbr></a></p>
 
             <div class="description">
-            <p>BaseService implements common functions</p>
+            <p>AbstractService implements common methods of ServiceInterface</p>
             <p></p>
         </div>
     
@@ -61,7 +61,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_getStatuses">
-        <div class="location">at line 17</div>
+        <div class="location">at line 23</div>
         <code>            public            array
     <strong>getStatuses</strong>()</code>
     </h3>
@@ -85,13 +85,15 @@
     </div>
 
                 <h3 id="method_setStatusClassname">
-        <div class="location">at line 31</div>
+        <div class="location">at line 35</div>
         <code>            public            
     <strong>setStatusClassname</strong>(string $statusClassname)</code>
     </h3>
     <div class="details">
         <p>set the status classname.</p>
-        <p>Must implement StatusInterface</p>
+        <p>Must implement StatusInterface.<br />
+<br />
+ I will be use to create a new StatusInterface with fetched datas</p>
         <div class="tags">
                             <h4>Parameters</h4>
 

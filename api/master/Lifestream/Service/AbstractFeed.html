@@ -25,6 +25,10 @@
                 <p>abstract class    <strong>AbstractFeed</strong>        extends <a href="../../Lifestream/Service/AbstractService.html"><abbr title="Lifestream\Service\AbstractService">AbstractService</abbr></a>        implements
         <a href="../../Lifestream/Service/ServiceFeedInterface.html"><abbr title="Lifestream\Service\ServiceFeedInterface">ServiceFeedInterface</abbr></a></p>
 
+            <div class="description">
+            <p>AbstractFeed implements common methods of ServiceFeedInterface</p>
+            <p></p>
+        </div>
     
     
     
@@ -56,8 +60,8 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___construct">__construct</a>($browser, $feedUrl, $profileUrl = null)
-                    <p></p>
+                    <a href="#method___construct">__construct</a>(<abbr title="Lifestream\Service\[type]">[type]</abbr> $browser, string $feedUrl, string $profileUrl = null)
+                    <p>Constructor</p>
                 </td>
                 <td></td>
             </tr>
@@ -76,58 +80,28 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_getBrowser">getBrowser</a>()
-                    <p></p>
+                    <a href="#method_setBrowser">setBrowser</a>(<abbr title="Lifestream\Service\[type]">[type]</abbr> $browser)
+                    <p>Set a browser</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_setBrowser">setBrowser</a>($browser)
-                    <p></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getFeedUrl">getFeedUrl</a>()
-                    <p></p>
+                    <p>Return the full url to the feed.</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_setFeedUrl">setFeedUrl</a>($feedUrl)
-                    <p></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getProfileUrl">getProfileUrl</a>()
-                    <p></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_setProfileUrl">setProfileUrl</a>($profileUrl)
-                    <p></p>
+                    <p>Return the full url to the profile</p>
                 </td>
                 <td></td>
             </tr>
@@ -137,7 +111,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_getStatuses">
-        <div class="location">in <a href="../../Lifestream/Service/AbstractService.html#method_getStatuses"><abbr title="Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 17</div>
+        <div class="location">in <a href="../../Lifestream/Service/AbstractService.html#method_getStatuses"><abbr title="Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 23</div>
         <code>            public            array
     <strong>getStatuses</strong>()</code>
     </h3>
@@ -161,13 +135,15 @@
     </div>
 
                 <h3 id="method_setStatusClassname">
-        <div class="location">in <a href="../../Lifestream/Service/AbstractService.html#method_setStatusClassname"><abbr title="Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 31</div>
+        <div class="location">in <a href="../../Lifestream/Service/AbstractService.html#method_setStatusClassname"><abbr title="Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 35</div>
         <code>            public            
     <strong>setStatusClassname</strong>(string $statusClassname)</code>
     </h3>
     <div class="details">
         <p>set the status classname.</p>
-        <p>Must implement StatusInterface</p>
+        <p>Must implement StatusInterface.<br />
+<br />
+ I will be use to create a new StatusInterface with fetched datas</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -186,31 +162,31 @@
     </div>
 
                 <h3 id="method___construct">
-        <div class="location">at line 18</div>
+        <div class="location">at line 21</div>
         <code>            public            
-    <strong>__construct</strong>($browser, $feedUrl, $profileUrl = null)</code>
+    <strong>__construct</strong>(<abbr title="Lifestream\Service\[type]">[type]</abbr> $browser, string $feedUrl, string $profileUrl = null)</code>
     </h3>
     <div class="details">
-        <p></p>
+        <p>Constructor</p>
         <p></p>
         <div class="tags">
                             <h4>Parameters</h4>
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Lifestream\Service\[type]">[type]</abbr></td>
                 <td>$browser</td>
-                <td></td>
+                <td>A browser</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$feedUrl</td>
-                <td></td>
+                <td>A Feed url</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$profileUrl</td>
-                <td></td>
+                <td>A profileUrl</td>
             </tr>
             </table>
 
@@ -221,7 +197,7 @@
     </div>
 
                 <h3 id="method_getName">
-        <div class="location">at line 44</div>
+        <div class="location">at line 65</div>
         <code>            public            string
     <strong>getName</strong>()</code>
     </h3>
@@ -235,7 +211,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>the service name</td>
+            <td>The service name</td>
         </tr>
     </table>
 
@@ -244,37 +220,22 @@
                     </div>
     </div>
 
-                <h3 id="method_getBrowser">
-        <div class="location">at line 49</div>
-        <code>            public            
-    <strong>getBrowser</strong>()</code>
-    </h3>
-    <div class="details">
-        <p></p>
-        <p></p>
-        <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
                 <h3 id="method_setBrowser">
-        <div class="location">at line 54</div>
+        <div class="location">at line 73</div>
         <code>            public            
-    <strong>setBrowser</strong>($browser)</code>
+    <strong>setBrowser</strong>(<abbr title="Lifestream\Service\[type]">[type]</abbr> $browser)</code>
     </h3>
     <div class="details">
-        <p></p>
+        <p>Set a browser</p>
         <p></p>
         <div class="tags">
                             <h4>Parameters</h4>
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Lifestream\Service\[type]">[type]</abbr></td>
                 <td>$browser</td>
-                <td></td>
+                <td>A browser</td>
             </tr>
             </table>
 
@@ -285,80 +246,48 @@
     </div>
 
                 <h3 id="method_getFeedUrl">
-        <div class="location">at line 61</div>
-        <code>            public            
+        <div class="location">at line 83</div>
+        <code>            public            string
     <strong>getFeedUrl</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
-        <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_setFeedUrl">
-        <div class="location">at line 66</div>
-        <code>            public            
-    <strong>setFeedUrl</strong>($feedUrl)</code>
-    </h3>
-    <div class="details">
-        <p></p>
+        <p>Return the full url to the feed.</p>
         <p></p>
         <div class="tags">
-                            <h4>Parameters</h4>
+            
+                            <h4>Return Value</h4>
 
                     <table>
-                    <tr>
-                <td></td>
-                <td>$feedUrl</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td>string</td>
+            <td>The feed Url</td>
+        </tr>
+    </table>
 
-            
             
             
                     </div>
     </div>
 
                 <h3 id="method_getProfileUrl">
-        <div class="location">at line 73</div>
-        <code>            public            
+        <div class="location">at line 91</div>
+        <code>            public            string
     <strong>getProfileUrl</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
-        <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_setProfileUrl">
-        <div class="location">at line 78</div>
-        <code>            public            
-    <strong>setProfileUrl</strong>($profileUrl)</code>
-    </h3>
-    <div class="details">
-        <p></p>
+        <p>Return the full url to the profile</p>
         <p></p>
         <div class="tags">
-                            <h4>Parameters</h4>
+            
+                            <h4>Return Value</h4>
 
                     <table>
-                    <tr>
-                <td></td>
-                <td>$profileUrl</td>
-                <td></td>
-            </tr>
-            </table>
+        <tr>
+            <td>string</td>
+            <td>The profile url</td>
+        </tr>
+    </table>
 
-            
             
             
                     </div>
