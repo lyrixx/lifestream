@@ -3,6 +3,7 @@
 namespace Lifestream\Formatter;
 
 use Lifestream\StatusInterface;
+
 /**
  * @package Lifestream
  * @subpackage Formatter
@@ -11,9 +12,9 @@ use Lifestream\StatusInterface;
 class Link implements FormatterInterface
 {
 
-    public function format(StatusInterface $status);
+    public function format(StatusInterface $status)
     {
-        return $status->setText(preg_replace("/(http:\/\/[^\s]+)/g", "<a href=\"$1\">$1</a>", $status()->getText());
+        return $status->setText(preg_replace("/(http:\/\/[^\s]+)/g", "<a href=\"$1\">$1</a>", $status()->getText()));
     }
 
 }
