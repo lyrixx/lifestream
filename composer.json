@@ -1,0 +1,12 @@
+{
+    "name": "lyrixx/lifestream-doc",
+    "require": {
+        "sami/sami": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Grégoire Pineau",
+            "email": "lyrixx@lyrixx.info"
+        }
+    ]
+}
