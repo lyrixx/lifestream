@@ -145,7 +145,7 @@ class Lifestream
      *
      * @throws \RuntimeException If lifestream is not booted
      *
-     * @param  integer $limit The limit
+     * @param integer $limit The limit
      *
      * @return StreamInterface The Stream
      */

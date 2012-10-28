@@ -53,7 +53,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      *
      * Theses data will be use to create a new StatusInterface
      *
-     * @param  \SimpleXMLElement $xml The raw datas
+     * @param \SimpleXMLElement $xml The raw datas
      *
      * @return array The datas
      */
