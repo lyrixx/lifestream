@@ -2,9 +2,14 @@
 
 namespace Lifestream\Service;
 
+/**
+ * Fetch an atom feed
+ */
 class Atom extends AbstractFeed
 {
-
+    /**
+     * {@inheritdoc}
+     */
     protected function extractDatas(\SimpleXMLElement $xml)
     {
         $datas = array();
@@ -15,6 +20,9 @@ class Atom extends AbstractFeed
         return $datas;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function formatDatas($datas)
     {
         $link = $datas->link;

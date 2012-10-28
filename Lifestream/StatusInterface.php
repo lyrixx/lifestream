@@ -2,9 +2,11 @@
 
 namespace Lifestream;
 
+/**
+ * Describe a status
+ */
 interface StatusInterface
 {
-
     /**
      * @return string The text
      */

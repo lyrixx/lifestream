@@ -3,15 +3,11 @@
 namespace Lifestream;
 
 /**
- * Manage the service stream. Able to manage statuses
- *
- * @package Lifestream
- * @subpackage Stream
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * Stream implementation. Implements StreamInterface.
+ * It use internally an array to store StatusInterface
  */
 class Stream implements StreamInterface
 {
-
     /**
      * @var array The stream
      */

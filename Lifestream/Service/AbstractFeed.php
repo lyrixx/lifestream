@@ -3,18 +3,21 @@
 namespace Lifestream\Service;
 
 /**
- *
- * @package Lifestream
- * @subpackage Service
- * @author lyrix
+ * AbstractFeed implements common methods of ServiceFeedInterface
  */
 abstract class AbstractFeed extends AbstractService implements ServiceFeedInterface
 {
-
     protected $feedUrl;
     protected $profileUrl;
     protected $browser;
 
+    /**
+     * Constructor
+     *
+     * @param [type] $browser    A browser
+     * @param string $feedUrl    A Feed url
+     * @param string $profileUrl A profileUrl
+     */
     public function __construct($browser, $feedUrl, $profileUrl = null)
     {
         $this->browser    = $browser;
@@ -22,6 +25,11 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
         $this->profileUrl = $profileUrl ?: $feedUrl;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @throws \RunetimeException If Browser failed to fetch data
+     */
     protected function getDatas()
     {
         $response = $this->getBrowser()->get($feedUrl = $this->getFeedUrl());
@@ -39,18 +47,29 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
         return $this->extractDatas($xml);
     }
 
+    /**
+     * Should extra datas from $xml and return an
+     * array with theses data
+     *
+     * Theses data will be use to create a new StatusInterface
+     *
+     * @param  \SimpleXMLElement $xml The raw datas
+     *
+     * @return array The datas
+     */
     abstract protected function extractDatas(\SimpleXMLElement $xml);
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return $this->getProfileUrl();
     }
 
-    public function getBrowser()
-    {
-        return $this->browser;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function setBrowser($browser)
     {
         $this->browser = $browser;
@@ -58,27 +77,29 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getFeedUrl()
     {
         return $this->feedUrl;
     }
 
-    public function setFeedUrl($feedUrl)
-    {
-        $this->feedUrl = $feedUrl;
-
-        return $this;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function getProfileUrl()
     {
         return $this->profileUrl;
     }
 
-    public function setProfileUrl($profileUrl)
+    /**
+     * Return the current browser
+     *
+     * @return [type] The browser
+     */
+    protected function getBrowser()
     {
-        $this->profileUrl = $profileUrl;
-
-        return $this;
+        return $this->browser;
     }
 }

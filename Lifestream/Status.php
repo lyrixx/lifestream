@@ -3,13 +3,10 @@
 namespace Lifestream;
 
 /**
- * @package Lifestream
- * @subpackage Stream
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * Status implementation. Implements StatusInterface
  */
 class Status implements StatusInterface
 {
-
     /**
      * @var string Text
      */
@@ -30,6 +27,13 @@ class Status implements StatusInterface
      */
     private $options;
 
+    /**
+     * Construtor
+     *
+     * @param array $datas An array of option.
+     *                     Set test, url and date to class attributes.
+     *                     Other datas are stored in options attributes
+     */
     public function __construct(array $datas = array())
     {
         if (isset($datas['text'])) {

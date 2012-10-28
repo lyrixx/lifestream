@@ -2,9 +2,14 @@
 
 namespace Lifestream\Service;
 
+/**
+ * Fetch RSS 2.0 feed
+ */
 class Rss20 extends AbstractFeed
 {
-
+    /**
+     * {@inheritdoc}
+     */
     protected function extractDatas(\SimpleXMLElement $xml)
     {
         $datas = array();
@@ -15,6 +20,9 @@ class Rss20 extends AbstractFeed
         return $datas;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function formatDatas($datas)
     {
         $categories = array();

@@ -5,11 +5,8 @@ namespace Lifestream\Service;
 use Lifestream\StatusInterface;
 
 /**
- * Interface for a service (Twitter, Delicious, Rss, etc)
- *
- * @package Lifestream
- * @subpackage Service
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * ServiceInterface will be in charges to fetch datas,
+ * and convert each status to a StatusInterface object.
  */
 interface ServiceInterface
 {
@@ -24,13 +21,15 @@ interface ServiceInterface
     /**
      * Return the service name
      *
-     * @return string the service name
+     * @return string The service name
      */
     public function getName();
 
     /**
      * set the status classname.
-     * Must implement StatusInterface
+     * Must implement StatusInterface.
+     *
+     * I will be use to create a new StatusInterface with fetched datas
      *
      * @param string $statusClassname The status classname
      */

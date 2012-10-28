@@ -3,15 +3,10 @@
 namespace Lifestream;
 
 /**
- * Manage the service stream. Able to manage statuses
- *
- * @package Lifestream
- * @subpackage Stream
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * StreamInterface represents a collection of StatusInterface
  */
 interface StreamInterface
 {
-
     /**
      * Add a StatusInterface to the stream
      *
@@ -29,7 +24,7 @@ interface StreamInterface
     /**
      * Get the stream
      *
-     * @param int|null $limit The number of StatusInterface. null for illimited Status.
+     * @param int|null $limit The number of StatusInterface. null for illimited Status
      *
      * @return array The stream, a collecion of StatusInterface
      */

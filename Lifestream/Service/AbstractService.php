@@ -3,17 +3,23 @@
 namespace Lifestream\Service;
 
 /**
- * BaseService implements common functions
- *
- * @package Lifestream
- * @subpackage Service
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * AbstractService implements common methods of ServiceInterface
  */
 abstract class AbstractService implements ServiceInterface
 {
     protected $stream          = array();
     protected $statusClassname = '\Lifestream\Status';
 
+    /**
+     * Return an array of raw status
+     *
+     * @return array A collection of raw status
+     */
+    abstract protected function getDatas();
+
+    /**
+     * {@inheritdoc}
+     */
     public function getStatuses()
     {
         foreach ($this->getDatas() as $data) {
@@ -22,8 +28,6 @@ abstract class AbstractService implements ServiceInterface
 
         return $this->stream;
     }
-
-    abstract protected function getDatas();
 
     /**
      * {@inheritdoc}
@@ -34,9 +38,11 @@ abstract class AbstractService implements ServiceInterface
     }
 
     /**
-     * Get a new instance of a status.
+     * Get a new instance of a status, according to $this->$statusClassname
      *
-     * @return Status A new status
+     * @param array $datas Some datas, to inject into new StatusInterface
+     *
+     * @return StatusInterface A new status
      */
     protected function getNewStatus($datas = array())
     {
