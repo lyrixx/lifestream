@@ -3,3 +3,5 @@ _theme_packages/*
 
 vendor
 composer.lock
+
+*.pyc
