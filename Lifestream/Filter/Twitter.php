@@ -3,10 +3,7 @@
 namespace Lifestream\Filter;
 
 /**
- *
- * @package Lifestream
- * @subpackage Filter
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * @todo Test me
  */
 class Twitter implements FilterInterface
 {

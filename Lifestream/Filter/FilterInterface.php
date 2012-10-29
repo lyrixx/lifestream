@@ -5,10 +5,7 @@ namespace Lifestream\Filter;
 use Lifestream\StatusInterface;
 
 /**
- *
- * @package Lifestream
- * @subpackage Filter
- * @author Grégoire Pineau <lyrixx@lyrixx.info>
+ * @todo Test me
  */
 interface FilterInterface {
 
