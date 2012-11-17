@@ -4,11 +4,11 @@ from fabric.decorators import task
 import os
 
 @task
-def post_commit(commit=None, push=False):
+def build(commit_hash=None, push=False):
     """
     Call this task after a commit.
     Sample of post-commit hook:
-    fab -f .../fabfile.py post_commit:commit=`git log -1 HEAD --pretty="%H"`
+    fab -f .../fabfile.py post_commit:commit_hash=`git log -1 HEAD --pretty="%H"`
     """
 
     with lcd(get_current_project_path()):
@@ -19,7 +19,7 @@ def post_commit(commit=None, push=False):
 
     update_doc()
 
-    commit_doc(commit)
+    commit_doc(commit_hash)
     local('notify-send "%s" "Doc Packaged"' % get_current_project_name())
     green('Doc built and commited')
 
@@ -33,11 +33,11 @@ def update_doc():
             local('php vendor/bin/sami.php update _sami/sami.php --no-ansi --force --quiet')
 
 @task
-def commit_doc(commit=None):
+def commit_doc(commit_hash=None):
     with lcd(get_current_project_path()):
         local('git add api')
-        if (commit):
-            message = 'Updated doc for \'%s\'' % commit
+        if (commit_hash):
+            message = 'Updated doc for \'%s\'' % commit_hash
         else:
             message = 'Updated doc'
         local('git ci -m "%s"' % message)
