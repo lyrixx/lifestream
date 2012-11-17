@@ -5,13 +5,15 @@ namespace Lifestream\Formatter;
 use Lifestream\StatusInterface;
 
 /**
- * @todo Test me
+ * Format a Status
  */
 interface FormatterInterface
 {
 
     /**
      * Return a formatted StatusInterface;
+     *
+     * @param StatusInterface $status A StatusInterface
      *
      * @return StatusInterface A formatted StatusInterface
      */
