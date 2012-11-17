@@ -5,9 +5,10 @@ namespace Lifestream\Filter;
 use Lifestream\StatusInterface;
 
 /**
- * @todo Test me
+ * Filter a StatusInterface
  */
-interface FilterInterface {
+interface FilterInterface
+{
 
     /**
      * Filter a status

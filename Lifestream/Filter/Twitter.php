@@ -2,8 +2,15 @@
 
 namespace Lifestream\Filter;
 
+use Lifestream\StatusInterface;
+
 /**
- * @todo Test me
+ * TwitterFilter
+ *
+ * Invalidate all reply
+ *
+ * @todo add RT filter
+ * @todo Support filter configuration
  */
 class Twitter implements FilterInterface
 {
@@ -11,16 +18,15 @@ class Twitter implements FilterInterface
     public function isValid(StatusInterface $status)
     {
         return true
-            && $this->filterMention($status)
+            && $this->filterReply($status)
         ;
     }
 
     /**
      * Remove all mention (eg : tweet with start with a '@')
      */
-    public function filterMention(StatusInterface $status)
+    private function filterReply(StatusInterface $status)
     {
-
         return 0 !== strpos($status->getText(), '@');
     }
 
