@@ -25,7 +25,7 @@ class Lifestream
      * @param array            $formatters An array of formatter
      * @param StreamInterface  $stream     A stream
      */
-    public function __construct(ServiceInterface $service, array $filters = array(), array $formatters = array(), StreamInterface $stream = null)
+    public function __construct(ServiceInterface $service = null, array $filters = array(), array $formatters = array(), StreamInterface $stream = null)
     {
         $this->service = $service;
         $this->setFilters($filters);
@@ -41,6 +41,10 @@ class Lifestream
      */
     public function boot()
     {
+        if (null === $this->service) {
+            throw new \LogicException('You must setup a ServiceInterface');
+        }
+
         foreach ($this->service->getStatuses() as $status) {
             $hasToContinue = false;
             foreach ($this->filters as $filter) {
@@ -158,7 +162,7 @@ class Lifestream
     public function getStream($limit = 10)
     {
         if (!$this->isBooted) {
-            throw new \RuntimeException('You must boot Lifestream before try to get stream');
+            throw new \LogicException('You must boot Lifestream before try to get stream');
         }
 
         return $this->stream->getStream($limit);

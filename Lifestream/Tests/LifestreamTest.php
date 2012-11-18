@@ -26,13 +26,33 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException RuntimeException
+     * @expectedException LogicException
      */
     public function testNotBooted()
     {
         $lifestream = new Lifestream($this->getMock('Lyrixx\Lifestream\Service\ServiceInterface'));
         $this->assertEquals(array(), $lifestream->getStream());
 
+    }
+
+    /**
+     * @expectedException LogicException
+     */
+    public function testServiceNotDefined()
+    {
+        $lifestream = new Lifestream();
+        $lifestream->boot();
+    }
+
+    public function testServiceDefined()
+    {
+        $lifestream = new Lifestream();
+        $service = $this->getService(1);
+
+        $lifestream->setService($service);
+        $this->assertSame($service, $lifestream->getService());
+
+        $lifestream->boot();
     }
 
     public function testGetStream()
