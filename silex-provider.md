@@ -18,6 +18,7 @@ composer require lyrixx/lifestream-silex-prodvider:dev-master
 #### Load extensions:
 
 {% highlight php %}
+<?php
 use Silex\Application;
 
 use MarcW\Silex\Provider\BuzzServiceProvider;
@@ -36,6 +37,7 @@ Usage
 -----
 
 {% highlight php %}
+<?php
 // $service = 'twitter';
 // $username = 'lyrixx';
 
