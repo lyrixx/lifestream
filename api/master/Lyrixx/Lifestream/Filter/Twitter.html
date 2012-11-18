@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Lyrixx\Lifestream\Filter\Twitter | Lifestream Api</title>
+                    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../classes.html">Classes</a></li>
+                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Lifestream Api</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../Lyrixx/Lifestream/Filter.html">Lyrixx\Lifestream\Filter</a>\Twitter</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Twitter</strong>        implements
+        <a href="../../../Lyrixx/Lifestream/Filter/FilterInterface.html"><abbr title="Lyrixx\Lifestream\Filter\FilterInterface">FilterInterface</abbr></a></p>
+
+            <div class="description">
+            <p>TwitterFilter</p>
+            <p>Can invalidate:<br />
+ * All reply<br />
+ * All retweet</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>FILTER_REPLY</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILTER_RETWEET</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(integer $flags = 3)
+                    <p>Constructor</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isValid">isValid</a>(<a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a> $status)
+                    <p>Filter a status</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_enableFilter">enableFilter</a>(int|string $flag)
+                    <p>Enable a filter.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_disableFilter">disableFilter</a>(int|string $flag)
+                    <p>Disable a filter.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_shouldFilter">shouldFilter</a>(int|string $flag)
+                    <p>Return if a filter should be called</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___call">__call</a>($method, $args)
+                    <p>Magic PHP method to handle method like:</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 31</div>
+        <code>            public            
+    <strong>__construct</strong>(integer $flags = 3)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$flags</td>
+                <td>Flags (a combinaison of FILTER_REPLY, FILTER_RETWEET, ...)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isValid">
+        <div class="location">at line 39</div>
+        <code>            public            boolean
+    <strong>isValid</strong>(<a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a> $status)</code>
+    </h3>
+    <div class="details">
+        <p>Filter a status</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a></td>
+                <td>$status</td>
+                <td>A status</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if the status is valid</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_enableFilter">
+        <div class="location">at line 58</div>
+        <code>            public            
+    <strong>enableFilter</strong>(int|string $flag)</code>
+    </h3>
+    <div class="details">
+        <p>Enable a filter.</p>
+        <p>See class constant for available filter</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int|string</td>
+                <td>$flag</td>
+                <td>The flag</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_disableFilter">
+        <div class="location">at line 72</div>
+        <code>            public            
+    <strong>disableFilter</strong>(int|string $flag)</code>
+    </h3>
+    <div class="details">
+        <p>Disable a filter.</p>
+        <p>See class constant for available filter</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int|string</td>
+                <td>$flag</td>
+                <td>The flag</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_shouldFilter">
+        <div class="location">at line 88</div>
+        <code>            public            boolean
+    <strong>shouldFilter</strong>(int|string $flag)</code>
+    </h3>
+    <div class="details">
+        <p>Return if a filter should be called</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int|string</td>
+                <td>$flag</td>
+                <td>The flag</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>If the filter sould be called</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___call">
+        <div class="location">at line 104</div>
+        <code>            public            
+    <strong>__call</strong>($method, $args)</code>
+    </h3>
+    <div class="details">
+        <p>Magic PHP method to handle method like:</p>
+        <p>* Twitter::enableFilterReply<br />
+ * Twitter::disableFilterReply<br />
+ * Twitter::shouldFilterReply</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$method</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$args</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
