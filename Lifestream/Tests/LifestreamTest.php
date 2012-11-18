@@ -6,23 +6,29 @@ use Lyrixx\Lifestream\Lifestream;
 
 class LifestreamTest extends \PHPUnit_Framework_TestCase
 {
-    public function testFetchWithFilterDontPass()
+    public function testBootWithFilterDontPass()
     {
         $lifestream = new Lifestream($this->getService(5), array($this->getFilter(5, false), $this->getFilter(0)));
         $lifestream->boot();
         $this->assertCount(0, $lifestream->getStream());
     }
 
-    public function testFetchWithFilterPass()
+    public function testBootWithFilterPass()
     {
         $lifestream = new Lifestream($this->getService(5), array($this->getFilter(5)), array(), $this->getStream(5));
+        $lifestream->boot();
+    }
+
+    public function testBootWithFormat()
+    {
+        $lifestream = new Lifestream($this->getService(5), array(), array($this->getFormatter(5)), $this->getStream(5));
         $lifestream->boot();
     }
 
     /**
      * @expectedException RuntimeException
      */
-    public function testBooted()
+    public function testNotBooted()
     {
         $lifestream = new Lifestream($this->getMock('Lyrixx\Lifestream\Service\ServiceInterface'));
         $this->assertEquals(array(), $lifestream->getStream());
@@ -60,7 +66,18 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
         ;
 
         return $filter;
+    }
 
+    private function getFormatter($nbCall, $returnValue = true)
+    {
+        $filter = $this->getMock('Lyrixx\Lifestream\Formatter\FormatterInterface');
+        $filter
+            ->expects($this->exactly($nbCall))
+            ->method('format')
+            ->will($this->returnArgument(0))
+        ;
+
+        return $filter;
     }
 
     private function getStream($nbCall, $callGetStream = false)
