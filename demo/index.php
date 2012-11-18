@@ -48,10 +48,10 @@ $lsf = $c['lifestream.factory'];
 
 use Lyrixx\Lifestream\Service;
 
-$lsf(new Service\Twitter($c['browser'], 'lyrixx'), 'twitter.lyrixx');
-$lsf(new Service\Github($c['browser'], 'lyrixx'),  'github.lyrixx');
-$lsf(new Service\Rss20($c['browser'], 'http://feeds2.feedburner.com/lyrixblog'), 'rss.lyrixx');
-$lsf(new Service\FlickrRss20($c['browser'], '34871318', 'xavierbriand'), 'flicker.xavierbriand');
+$lsf(new Service\Twitter('lyrixx', $c['browser']), 'twitter.lyrixx');
+$lsf(new Service\Github('lyrixx', $c['browser']), 'github.lyrixx');
+$lsf(new Service\Rss20('http://feeds2.feedburner.com/lyrixblog', null, $c['browser']), 'rss.lyrixx');
+$lsf(new Service\FlickrRss20('34871318', 'xavierbriand', $c['browser']), 'flicker.xavierbriand');
 
 // $c['delicious.username']    = 'lyrixx86';
 // $c['lastfm.username']       = 'lyrix86';

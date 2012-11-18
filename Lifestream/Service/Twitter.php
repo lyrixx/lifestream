@@ -16,11 +16,11 @@ class Twitter extends Atom
      * @param [type] $browser  The browser
      * @param string $username The twitter username
      */
-    public function __construct($browser, $username)
+    public function __construct($username, $browser = null)
     {
         $feedUrl = sprintf(self::FEED_URL, $username);
         $profileUrl = sprintf(self::PROFILE_URL, $username);
 
-        parent::__construct($browser, $feedUrl, $profileUrl);
+        parent::__construct($feedUrl, $profileUrl, $browser);
     }
 }

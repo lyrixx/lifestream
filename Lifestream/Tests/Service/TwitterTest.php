@@ -8,7 +8,8 @@ class TwitterTest extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $service = new Twitter($this->getBrowser(__DIR__.'/Fixtures/Twitter.xml'), 'lyrixx');
+        $service = new Twitter('lyrixx');
+        $service->setBrowser($this->getBrowser(__DIR__.'/Fixtures/Twitter.xml'));
 
         $statuses = $service->getStatuses();
         $this->assertCount(12, $statuses);
@@ -23,7 +24,7 @@ class TwitterTest extends AbstractTest
     {
         return array(
             array(
-                new Twitter($this->getBrowser(), $name = 'lyrixx'),
+                new Twitter('lyrixx', $this->getBrowser()),
                 'http://search.twitter.com/search.atom?q=from%3A%40lyrixx',
                 'https://twitter.com/lyrixx',
                 'https://twitter.com/lyrixx'

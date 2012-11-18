@@ -8,7 +8,8 @@ class GithubTest extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $service = new Github($this->getBrowser(__DIR__.'/Fixtures/Github.xml'), 'lyrixx');
+        $service = new Github('lyrixx');
+        $service->setBrowser($this->getBrowser(__DIR__.'/Fixtures/Github.xml'));
 
         $statuses = $service->getStatuses();
         $this->assertCount(30, $statuses);
@@ -23,7 +24,7 @@ class GithubTest extends AbstractTest
     {
         return array(
             array(
-                new Github($this->getBrowser(), $name = 'lyrixx'),
+                new Github('lyrixx', $this->getBrowser()),
                 'https://github.com/lyrixx.atom',
                 'https://github.com/lyrixx',
                 'https://github.com/lyrixx'

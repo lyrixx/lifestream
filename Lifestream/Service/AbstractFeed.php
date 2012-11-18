@@ -18,7 +18,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      * @param string $feedUrl    A Feed url
      * @param string $profileUrl A profileUrl
      */
-    public function __construct($browser, $feedUrl, $profileUrl = null)
+    public function __construct($feedUrl, $profileUrl = null, $browser = null)
     {
         $this->browser    = $browser;
         $this->feedUrl    = $feedUrl;
@@ -32,6 +32,10 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      */
     protected function getDatas()
     {
+        if (null === $this->browser) {
+            throw new \RuntimeException('You must set up a browser before call AbtractFeed::getDatas()');
+        }
+
         $response = $this->getBrowser()->get($feedUrl = $this->getFeedUrl());
 
         if (!$content = $response->getContent()) {

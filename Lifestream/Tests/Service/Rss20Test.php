@@ -8,7 +8,8 @@ class Rss20Test extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $service = new Rss($this->getBrowser(__DIR__.'/Fixtures/Rss20.xml'), 'http://localhost/feed.xml');
+        $service = new Rss('http://localhost/feed.xml');
+        $service->setBrowser($this->getBrowser(__DIR__.'/Fixtures/Rss20.xml'));
 
         $statuses = $service->getStatuses();
         $this->assertCount(5, $statuses);
@@ -28,7 +29,7 @@ class Rss20Test extends AbstractTest
     {
         return array(
             array(
-                new Rss($this->getBrowser(), $name = 'http://localhost/feed.xml'),
+                new Rss($name = 'http://localhost/feed.xml', null, $this->getBrowser()),
                 $name,
                 $name,
                 $name
