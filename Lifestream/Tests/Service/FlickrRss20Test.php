@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
-use Lifestream\Service\FlickrRss20 as Flickr;
+use Lyrixx\Lifestream\Service\FlickrRss20 as Flickr;
 
 class FlickrRss20Test extends AbstractTest
 {

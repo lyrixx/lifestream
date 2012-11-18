@@ -11,6 +11,8 @@ $c['browser'] = $c->share(function () {
     return new Buzz\Browser(new Buzz\Client\Curl());
 });
 
+use Lyrixx\Lifestream;
+
 $c['lifestream.factory'] = $c->protect(function($service, $id) use($c) {
     $lifestream = new Lifestream\Lifestream($service);
 
@@ -44,7 +46,7 @@ $c['lifestream.display'] = $c->protect(function($lifestream, $title = null) {
 // Config:
 $lsf = $c['lifestream.factory'];
 
-use Lifestream\Service;
+use Lyrixx\Lifestream\Service;
 
 $lsf(new Service\Twitter($c['browser'], 'lyrixx'), 'twitter.lyrixx');
 $lsf(new Service\Github($c['browser'], 'lyrixx'),  'github.lyrixx');

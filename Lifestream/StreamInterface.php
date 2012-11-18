@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream;
+namespace Lyrixx\Lifestream;
 
 /**
  * StreamInterface represents a collection of StatusInterface

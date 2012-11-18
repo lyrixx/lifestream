@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests;
+namespace Lyrixx\Lifestream\Tests;
 
-use Lifestream\Status;
+use Lyrixx\Lifestream\Status;
 
 /**
  * Test class for StatusStream.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
-use Lifestream\Service\Atom;
+use Lyrixx\Lifestream\Service\Atom;
 
 class AtomTest extends AbstractTest
 {

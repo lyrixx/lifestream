@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Filter;
+namespace Lyrixx\Lifestream\Tests\Filter;
 
-use Lifestream\Filter\Twitter;
+use Lyrixx\Lifestream\Filter\Twitter;
 
 class TwitterTest extends \PHPUnit_Framework_TestCase
 {
@@ -54,7 +54,7 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidateMention($expected, $text)
     {
-        $status = $this->getMock('Lifestream\StatusInterface');
+        $status = $this->getMock('Lyrixx\Lifestream\StatusInterface');
         $status
             ->expects($this->any())
             ->method('getText')
@@ -80,7 +80,7 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidateRetweet($expected, $text)
     {
-        $status = $this->getMock('Lifestream\StatusInterface');
+        $status = $this->getMock('Lyrixx\Lifestream\StatusInterface');
         $status
             ->expects($this->any())
             ->method('getText')

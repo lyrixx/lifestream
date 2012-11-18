@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream\Service;
+namespace Lyrixx\Lifestream\Service;
 
 /**
  * Fetch flickr feed with atom channel

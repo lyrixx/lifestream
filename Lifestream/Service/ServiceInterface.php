@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Service;
+namespace Lyrixx\Lifestream\Service;
 
-use Lifestream\StatusInterface;
+use Lyrixx\Lifestream\StatusInterface;
 
 /**
  * ServiceInterface will be in charges to fetch datas,

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
-use Lifestream\Service\Rss20 as Rss;
+use Lyrixx\Lifestream\Service\Rss20 as Rss;
 
 class Rss20Test extends AbstractTest
 {

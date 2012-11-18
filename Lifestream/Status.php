@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream;
+namespace Lyrixx\Lifestream;
 
 /**
  * Status implementation. Implements StatusInterface

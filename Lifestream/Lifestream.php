@@ -1,10 +1,10 @@
 <?php
 
-namespace Lifestream;
+namespace Lyrixx\Lifestream;
 
-use Lifestream\Service\ServiceInterface;
-use Lifestream\Formatter\FormatterInterface;
-use Lifestream\Filter\FilterInterface;
+use Lyrixx\Lifestream\Service\ServiceInterface;
+use Lyrixx\Lifestream\Formatter\FormatterInterface;
+use Lyrixx\Lifestream\Filter\FilterInterface;
 
 /**
  * Class Lifestream is the engine of Lifestream library.

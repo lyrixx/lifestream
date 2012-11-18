@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests;
+namespace Lyrixx\Lifestream\Tests;
 
-use Lifestream\Lifestream;
+use Lyrixx\Lifestream\Lifestream;
 
 class LifestreamTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
      */
     public function testBooted()
     {
-        $lifestream = new Lifestream($this->getMock('\Lifestream\Service\ServiceInterface'));
+        $lifestream = new Lifestream($this->getMock('Lyrixx\Lifestream\Service\ServiceInterface'));
         $this->assertEquals(array(), $lifestream->getStream());
 
     }
@@ -37,9 +37,9 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
 
     private function getService($nbStatus)
     {
-        $status  = $this->getMock('\Lifestream\StatusInterface');
+        $status  = $this->getMock('Lyrixx\Lifestream\StatusInterface');
 
-        $service = $this->getMock('\Lifestream\Service\ServiceInterface');
+        $service = $this->getMock('Lyrixx\Lifestream\Service\ServiceInterface');
         $service
             ->expects($this->exactly(1))
             ->method('getStatuses')
@@ -51,7 +51,7 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
 
     private function getFilter($nbCall, $returnValue = true)
     {
-        $filter = $this->getMock('\Lifestream\Filter\FilterInterface');
+        $filter = $this->getMock('Lyrixx\Lifestream\Filter\FilterInterface');
         $filter
             ->expects($this->exactly($nbCall))
             ->method('isValid')
@@ -64,7 +64,7 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
 
     private function getStream($nbCall, $callGetStream = false)
     {
-        $stream = $this->getMock('\Lifestream\StreamInterface');
+        $stream = $this->getMock('Lyrixx\Lifestream\StreamInterface');
         $stream
             ->expects($this->exactly($nbCall))
             ->method('addStatus')

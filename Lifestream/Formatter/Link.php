@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Formatter;
+namespace Lyrixx\Lifestream\Formatter;
 
-use Lifestream\StatusInterface;
+use Lyrixx\Lifestream\StatusInterface;
 
 /**
  * Link formatter transforms all text/plain link

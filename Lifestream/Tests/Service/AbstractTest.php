@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
 abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 {

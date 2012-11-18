@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream\Service;
+namespace Lyrixx\Lifestream\Service;
 
 /**
  * ServiceFeedInterface will be in charges to

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Filter;
+namespace Lyrixx\Lifestream\Filter;
 
-use Lifestream\StatusInterface;
+use Lyrixx\Lifestream\StatusInterface;
 
 /**
  * Filter a StatusInterface

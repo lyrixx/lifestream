@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
-use Lifestream\Service\Twitter;
+use Lyrixx\Lifestream\Service\Twitter;
 
 class TwitterTest extends AbstractTest
 {

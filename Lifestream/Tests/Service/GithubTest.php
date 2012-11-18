@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Sevice;
 
-use Lifestream\Service\Github;
+use Lyrixx\Lifestream\Service\Github;
 
 class GithubTest extends AbstractTest
 {

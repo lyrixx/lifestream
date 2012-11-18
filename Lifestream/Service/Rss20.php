@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream\Service;
+namespace Lyrixx\Lifestream\Service;
 
 /**
  * Fetch RSS 2.0 feed

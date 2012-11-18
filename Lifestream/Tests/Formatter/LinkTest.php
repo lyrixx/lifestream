@@ -1,9 +1,9 @@
 <?php
 
-namespace Lifestream\Tests\Formatter;
+namespace Lyrixx\Lifestream\Tests\Formatter;
 
-use Lifestream\Formatter\Link;
-use Lifestream\Status;
+use Lyrixx\Lifestream\Formatter\Link;
+use Lyrixx\Lifestream\Status;
 
 class LinkTest extends \PHPUnit_Framework_TestCase
 {

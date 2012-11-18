@@ -1,6 +1,6 @@
 <?php
 
-namespace Lifestream\Service;
+namespace Lyrixx\Lifestream\Service;
 
 /**
  * AbstractService implements common methods of ServiceInterface
@@ -8,7 +8,7 @@ namespace Lifestream\Service;
 abstract class AbstractService implements ServiceInterface
 {
     protected $stream          = array();
-    protected $statusClassname = '\Lifestream\Status';
+    protected $statusClassname = 'Lyrixx\Lifestream\Status';
 
     /**
      * Return an array of raw status

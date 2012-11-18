@@ -1,8 +1,8 @@
 <?php
 
-namespace Lifestream\Filter;
+namespace Lyrixx\Lifestream\Filter;
 
-use Lifestream\StatusInterface;
+use Lyrixx\Lifestream\StatusInterface;
 
 /**
  * TwitterFilter
@@ -53,11 +53,11 @@ class Twitter implements FilterInterface
     /**
      * Enable a filter. See class constant for available filter
      *
-     * @param  int|string $flag The flag
+     * @param int|string $flag The flag
      */
     public function enableFilter($flag)
     {
-        if (is_string($flag)){
+        if (is_string($flag)) {
             $flag = $this->convertStringFlag($flag);
         }
 
@@ -67,11 +67,11 @@ class Twitter implements FilterInterface
     /**
      * Disable a filter. See class constant for available filter
      *
-     * @param  int|string $flag The flag
+     * @param int|string $flag The flag
      */
     public function disableFilter($flag)
     {
-        if (is_string($flag)){
+        if (is_string($flag)) {
             $flag = $this->convertStringFlag($flag);
         }
 
@@ -81,13 +81,13 @@ class Twitter implements FilterInterface
     /**
      * Return if a filter should be called
      *
-     * @param  int|string $flag The flag
+     * @param int|string $flag The flag
      *
      * @return boolean If the filter sould be called
      */
     public function shouldFilter($flag)
     {
-        if (is_string($flag)){
+        if (is_string($flag)) {
             $flag = $this->convertStringFlag($flag);
         }
 
@@ -103,7 +103,7 @@ class Twitter implements FilterInterface
      */
     public function __call($method, $args)
     {
-        if (0 === strpos($method, 'enable')){
+        if (0 === strpos($method, 'enable')) {
             $this->enableFilter(substr($method, 6));
         } elseif (0 === strpos($method, 'disable')) {
             $this->disableFilter(substr($method, 8));

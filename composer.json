@@ -15,8 +15,9 @@
     },
     "autoload": {
         "psr-0": {
-            "Lifestream\\": ""
+            "Lyrixx\\Lifestream": "Lifestream"
         }
     },
+    "target-dir": "Lyrixx",
     "minimum-stability": "dev"
 }
