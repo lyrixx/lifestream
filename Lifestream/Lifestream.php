@@ -42,11 +42,17 @@ class Lifestream
     public function boot()
     {
         foreach ($this->service->getStatuses() as $status) {
+            $hasToContinue = false;
             foreach ($this->filters as $filter) {
                 if (!$filter->isValid($status)) {
+                    $hasToContinue = true;
+
                     break;
-                    continue;
                 }
+            }
+
+            if ($hasToContinue) {
+                continue;
             }
 
             foreach ($this->formatters as $formatter) {

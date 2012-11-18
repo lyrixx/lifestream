@@ -10,6 +10,7 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
     {
         $lifestream = new Lifestream($this->getService(5), array($this->getFilter(5, false), $this->getFilter(0)));
         $lifestream->boot();
+        $this->assertCount(0, $lifestream->getStream());
     }
 
     public function testFetchWithFilterPass()
