@@ -21,8 +21,28 @@ from differents services:
 -  atom feed
 -  github
 
-Demo
-------
+Usage
+-----
+
+{% highlight php %}
+<?php
+// $service = 'twitter';
+// $username = 'lyrixx';
+
+$browser = new Buzz\Browser(new Buzz\Client\Curl())
+$factory = new Lyrixx\Lifestream\LifestreamFactory($browser);
+
+$status = $factory
+    ->createLifestream($service, $username)
+    ->addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
+    ->addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
+    ->boot()
+    ->getStream()
+;
+foreach ($status as $key => $value) {
+    echo $value;
+}
+{% endhighlight %}
 
 For an extensive demo, look
 [demo/index.php](https://github.com/lyrixx/lifestream/blob/master/demo/index.php)
