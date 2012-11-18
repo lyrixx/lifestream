@@ -47,6 +47,12 @@ You could format each status with formatters:
 -  Transform an twitter mention into an html link
 -  ...
 
+Integration
+-----------
+
+-  with [silex]({{ BASE_PATH }}/silex-provider.html)
+
+
 Extensability
 -------------
 
