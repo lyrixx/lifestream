@@ -1,10 +1,15 @@
 {
-    "name": "lyrixx/lifestream",
-    "description": "Fetch some feeds in an unified way",
+    "name":         "lyrixx/lifestream",
+    "description":  "Fetch some feeds in an unified way",
+    "type":         "library",
+    "keywords":     ["lifestream", "api", "feed", "stream", "twitter", "github", "flickr", "rss", "atom"],
+    "homepage":     "http://lyrixx.github.com/lifestream/",
+    "license":      "MIT",
     "authors": [
         {
-            "name": "Grégoire Pineau",
-            "email": "lyrixx@lyrixx.info"
+            "name":     "Grégoire Pineau",
+            "email":    "lyrixx@lyrixx.info",
+            "homepage": "http://gregoirepineau.fr"
         }
     ],
     "require": {
@@ -15,7 +20,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lyrixx\\Lifestream": "Lifestream"
+            "Lyrixx": ""
         }
     },
     "target-dir": "Lyrixx",
