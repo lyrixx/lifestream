@@ -52,7 +52,6 @@ Integration
 
 -  with [silex]({{ BASE_PATH }}/silex-provider.html)
 
-
 Extensability
 -------------
 
