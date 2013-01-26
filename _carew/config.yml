@@ -16,7 +16,7 @@ engine:
         - Carew\Plugin\Sami\SamiExtension
 
 sami:
-    project_dir: /home/greg/dev/perso/lifestream2
+    project_dir: /home/greg/dev/perso/lifestream
     src_dir:     Lifestream
     name:        Lifestream
     branches:
