@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Lifestream</title>
+
+    <meta name="description" content="A stream unifier for PHP">
+    <meta name="author" content="Grégoire Pineau">
+    <meta name="viewport" content="width=device-width">
+
+    
+    
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/highlight.css">
+
+    
+    <script src="./js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+          <a href="http://github.com/lyrixx/lifestream" target="_blank"><img style="position: fixed; top: 40px; left: 0; border: 0; z-index:10000" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  
+          <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+              <div class="container">
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </a>
+                  <a class="brand" href=".">Lifestream</a>
+                  <div class="nav-collapse collapse">
+                        <ul class="nav">
+                              <ul class="nav">
+                                                                                                            <li><a href="./silex-provider.html">Silex Provider</a></li>
+                                                                                                                <li><a href="./api/master/index.html">API</a></li>
+                                                                                                    </ul>
+                    
+         <li class="divider-vertical"></li>
+                                    <li><a href="#description">Description</a></li>
+                            <li><a href="#usage">Usage</a></li>
+                            <li><a href="#filter">Filter</a></li>
+                            <li><a href="#formatter">Formatter</a></li>
+                            <li><a href="#integration">Integration</a></li>
+                            <li><a href="#extensability">Extensability</a></li>
+                            <li><a href="#requirements">Requirements</a></li>
+                        </ul>
+                      <ul class="nav pull-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Other OSS project">
+        Lyrixx
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+                          <li><a href="http://carew.github.com" target="_blank">Carew</a></li>
+                  <li><a href="http://lyrixx.github.com/Silex-Kitchen-Edition/" target="_blank">Silex Kitchen Edition</a></li>
+                  <li><a href="http://lyrixx.github.com/lifestream/" target="_blank">Lifestream</a></li>
+                  <li><a href="http://lyrixx.github.com/Series/" target="_blank">Series</a></li>
+                <li class="divider"></li>
+        <li class="nav-header">Follow me on</li>
+                          <li><a href="http://github.com/lyrixx" target="_blank">Github</a></li>
+                  <li><a href="http://twitter.com/lyrixx" target="_blank">Twitter</a></li>
+                  <li><a href="http://blog.lyrixx.info" target="_blank">Blog</a></li>
+              </ul>
+    </li>
+  </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+    
+          <div class="container">
+
+        
+                  <div class="row">
+            <div class="span10 offset1 content">
+                                                <div class="page-header">
+                    <h1>Lifestream</h1>
+                  </div>
+                              
+              <p><a href="http://travis-ci.org/lyrixx/lifestream"><img src="https://secure.travis-ci.org/lyrixx/lifestream.png" alt="Build Status"></a></p>
+
+<h2 id="description">Description<a href="#description" class="anchor">#</a></h2>
+
+<p>Lifestream is a stream unifier for PHP.
+Thanks to this lib, you could easily fetch <em>last datas /&nbsp;status</em>
+from differents services:</p>
+
+<ul><li>twitter</li>
+<li>flickr</li>
+<li>rss feed</li>
+<li>atom feed</li>
+<li>github</li>
+</ul><h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
+
+<pre class="php" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">// $service = 'twitter';</span>
+<span style="color: #666666; font-style: italic;">// $username = 'lyrixx';</span>
+&nbsp;
+<span style="color: #000088;">$browser</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Buzz\Browser<span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> Buzz\Client\Curl<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #000088;">$factory</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Lyrixx\Lifestream\LifestreamFactory<span style="color: #009900;">&#40;</span><span style="color: #000088;">$browser</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
+&nbsp;
+<span style="color: #000088;">$status</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$factory</span>
+    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">createLifestream</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$service</span><span style="color: #339933;">,</span> <span style="color: #000088;">$username</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">addFilter</span><span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> \Lyrixx\Lifestream\Filter\Twitter<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">addFormatter</span><span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> \Lyrixx\Lifestream\Formatter\<a href="http://www.php.net/link"><span style="color: #990000;">Link</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">boot</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">getStream</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
+<span style="color: #339933;">;</span>
+<span style="color: #b1b100;">foreach</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$status</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$key</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$value</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
+    <span style="color: #b1b100;">echo</span> <span style="color: #000088;">$value</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">&#125;</span></pre>
+
+<p>For an extensive demo, look
+<a href="https://github.com/lyrixx/lifestream/blob/master/demo/index.php">demo/index.php</a>
+file.</p>
+
+<h2 id="filter">Filter<a href="#filter" class="anchor">#</a></h2>
+
+<p>You could filter each status with filters:</p>
+
+<ul><li>remove direct mention from twitter stream</li>
+<li>remove RT from twitter stream</li>
+<li>remove status wich contains specific word</li>
+<li>...</li>
+</ul><h2 id="formatter">Formatter<a href="#formatter" class="anchor">#</a></h2>
+
+<p>You could format each status with formatters:</p>
+
+<ul><li>Transform a text link into an html link</li>
+<li>Transform an twitter mention into an html link</li>
+<li>...</li>
+</ul><h2 id="integration">Integration<a href="#integration" class="anchor">#</a></h2>
+
+<ul><li>With <a href="./silex-provider.html">Silex</a></li>
+</ul><h2 id="extensability">Extensability<a href="#extensability" class="anchor">#</a></h2>
+
+<p>Of course it's possible to add new Service, Filter or Formatter.</p>
+
+<h2 id="requirements">Requirements<a href="#requirements" class="anchor">#</a></h2>
+
+<ul><li>PHP 5.3</li>
+</ul>            </div>
+          </div>
+        
+                  <footer>
+            <p>
+              &copy;
+                              <a href="http://gregoirepineau.fr">
+                  Grégoire Pineau
+                </a>
+                            2013
+              <small>
+                with help from <a href="http://carew.github.com/" target="_blank">Carew</a>
+              </small>
+            </p>
+          </footer>
+              </div>
+    
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+      </body>
+</html>

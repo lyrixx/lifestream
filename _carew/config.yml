@@ -1,0 +1,23 @@
+site:
+    title:        Lifestream
+    description:  A stream unifier for PHP
+    author_name:  Grégoire Pineau
+    author_email: lyrixx@lyrixx.info
+    author_url:   http://gregoirepineau.fr
+    gh_url:       http://github.com/lyrixx/lifestream
+
+engine:
+    themes:
+        - %dir%/vendor/lyrixx/my-theme-bootstrap
+        - %dir%/vendor/carew/theme-bootstrap
+    extensions:
+        - Carew\Plugin\Toc\TocExtension
+        - Carew\Plugin\Highlight\HighlightExtension
+        - Carew\Plugin\Sami\SamiExtension
+
+sami:
+    project_dir: /home/greg/dev/perso/lifestream2
+    src_dir:     Lifestream
+    name:        Lifestream
+    branches:
+        master: Master
