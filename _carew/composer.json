@@ -1,0 +1,12 @@
+{
+    "require": {
+        "carew/carew"               : "~1.3",
+        "carew/theme-bootstrap"     : "~1",
+        "carew/plugin-toc"          : "~1",
+        "carew/plugin-highlight"    : "~1",
+        "easybook/geshi"            : "dev-master@dev",
+        "lyrixx/my-theme-bootstrap" : "dev-master@dev",
+        "carew/plugin-sami"         : "~1",
+        "sami/sami"                 : "dev-master@dev"
+    }
+}

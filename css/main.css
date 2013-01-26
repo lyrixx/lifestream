@@ -12,7 +12,8 @@ body {
 
 .page-header {
   background-color: #f5f5f5;
-  margin: -20px -20px 20px;
+  margin: -20px;
+  margin-bottom: 20px;
   padding: 5px 20px;
 }
 
@@ -72,4 +73,9 @@ footer {
   background:#57A957;
   border:1px solid #4C964D;
   color:#FFF;
+}
+h1 .anchor, h2 .anchor, h3 .anchor, h4 .anchor {
+    color: #CCCCCC;
+    display: inline-block;
+    margin-left: 5px;
 }
