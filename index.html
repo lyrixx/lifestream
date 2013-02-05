@@ -98,22 +98,24 @@ from differents services:</p>
 <li>github</li>
 </ul><h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
-<pre class="php" style="font-family:monospace;"><span style="color: #666666; font-style: italic;">// $service = 'twitter';</span>
-<span style="color: #666666; font-style: italic;">// $username = 'lyrixx';</span>
-&nbsp;
-<span style="color: #000088;">$browser</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Buzz\Browser<span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> Buzz\Client\Curl<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #000088;">$factory</span> <span style="color: #339933;">=</span> <span style="color: #000000; font-weight: bold;">new</span> Lyrixx\Lifestream\LifestreamFactory<span style="color: #009900;">&#40;</span><span style="color: #000088;">$browser</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #000088;">$status</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$factory</span>
-    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">createLifestream</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$service</span><span style="color: #339933;">,</span> <span style="color: #000088;">$username</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">addFilter</span><span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> \Lyrixx\Lifestream\Filter\Twitter<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">addFormatter</span><span style="color: #009900;">&#40;</span><span style="color: #000000; font-weight: bold;">new</span> \Lyrixx\Lifestream\Formatter\<a href="http://www.php.net/link"><span style="color: #990000;">Link</span></a><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">boot</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-    <span style="color: #339933;">-&gt;</span><span style="color: #004000;">getStream</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span>
-<span style="color: #339933;">;</span>
-<span style="color: #b1b100;">foreach</span> <span style="color: #009900;">&#40;</span><span style="color: #000088;">$status</span> <span style="color: #b1b100;">as</span> <span style="color: #000088;">$key</span> <span style="color: #339933;">=&gt;</span> <span style="color: #000088;">$value</span><span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #b1b100;">echo</span> <span style="color: #000088;">$value</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span></pre>
+<pre><code>php
+// $service = 'twitter';
+// $username = 'lyrixx';
+
+$browser = new Buzz\Browser(new Buzz\Client\Curl())
+$factory = new Lyrixx\Lifestream\LifestreamFactory($browser);
+
+$status = $factory
+    -&gt;createLifestream($service, $username)
+    -&gt;addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
+    -&gt;addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
+    -&gt;boot()
+    -&gt;getStream()
+;
+foreach ($status as $key =&gt; $value) {
+    echo $value;
+}
+</code></pre>
 
 <p>For an extensive demo, look
 <a href="https://github.com/lyrixx/lifestream/blob/master/demo/index.php">demo/index.php</a>

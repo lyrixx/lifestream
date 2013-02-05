@@ -3,7 +3,6 @@
         "carew/carew"               : "dev-master",
         "carew/theme-bootstrap"     : "dev-master",
         "carew/plugin-toc"          : "dev-master",
-        "carew/plugin-highlight"    : "dev-master",
         "easybook/geshi"            : "dev-master",
         "lyrixx/my-theme-bootstrap" : "dev-master",
         "carew/plugin-sami"         : "dev-master",
