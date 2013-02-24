@@ -5,13 +5,8 @@ namespace Lyrixx\Lifestream\Tests\Formatter;
 use Lyrixx\Lifestream\Formatter\TwitterHashtag;
 use Lyrixx\Lifestream\Status;
 
-class TwitterHashtagTest extends \PHPUnit_Framework_TestCase
+class TwitterHashtagTest extends AbstractTest
 {
-    public function setUp()
-    {
-        $this->link = new TwitterHashtag();
-    }
-
     public function getFormatTests()
     {
         return array(
@@ -25,19 +20,8 @@ class TwitterHashtagTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @dataProvider getFormatTests
-     */
-    public function testFormat($expected, $text)
+    protected function createNewFormater()
     {
-        $status = new Status();
-        $status->setText($text);
-
-        $this->assertSame($expected, $this->link->format($status)->getText());
-    }
-
-    public function tearDown()
-    {
-        $this->link = null;
+        return new TwitterHashtag();
     }
 }
