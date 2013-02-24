@@ -44,9 +44,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
             throw new \RuntimeException(sprintf('Client faild with "%s" ; Status : "%s"', $feedUrl , $response->getStatusCode()));
         }
 
-        $xml = new \SimpleXMLElement($response->getBody());
-
-        return $this->extractDatas($xml);
+        return $this->extractDatas($response->getBody());
     }
 
     /**
@@ -55,11 +53,11 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      *
      * Theses data will be use to create a new StatusInterface
      *
-     * @param \SimpleXMLElement $xml The raw datas
+     * @param string $datas
      *
      * @return array The datas
      */
-    abstract protected function extractDatas(\SimpleXMLElement $xml);
+    abstract protected function extractDatas($datas);
 
     /**
      * {@inheritdoc}

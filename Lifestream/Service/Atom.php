@@ -10,8 +10,10 @@ class Atom extends AbstractFeed
     /**
      * {@inheritdoc}
      */
-    protected function extractDatas(\SimpleXMLElement $xml)
+    protected function extractDatas($datas)
     {
+        $xml = new \SimpleXMLElement($datas);
+
         $datas = array();
         foreach ($xml->entry as $value) {
             $datas[] = $this->formatDatas($value);

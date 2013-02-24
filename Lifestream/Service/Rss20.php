@@ -10,8 +10,10 @@ class Rss20 extends AbstractFeed
     /**
      * {@inheritdoc}
      */
-    protected function extractDatas(\SimpleXMLElement $xml)
+    protected function extractDatas($datas)
     {
+        $xml = new \SimpleXMLElement($datas);
+
         $datas = array();
         foreach ($xml->channel->item as $value) {
             $datas[] = $this->formatDatas($value);
