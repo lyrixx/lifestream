@@ -104,7 +104,7 @@ $username = 'lyrixx';
 
 $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
     -&gt;createLifestream($service, $username)
-    -&gt;addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+    -&gt;addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
     -&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     -&gt;boot()
     -&gt;getStream()

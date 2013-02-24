@@ -28,7 +28,7 @@ Usage
 
     $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
         ->createLifestream($service, $username)
-        ->addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+        ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
         ->boot()
         ->getStream()
