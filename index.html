@@ -87,9 +87,8 @@
 
 <h2 id="description">Description<a href="#description" class="anchor">#</a></h2>
 
-<p>Lifestream is a stream unifier for PHP.
-Thanks to this lib, you could easily fetch <em>last datas /&nbsp;status</em>
-from differents services:</p>
+<p>Lifestream is a stream unifier for PHP. Thanks to this lib, you could easily
+fetch <em>last datas /&nbsp;status</em> from differents services:</p>
 
 <ul><li>twitter</li>
 <li>flickr</li>
@@ -98,22 +97,23 @@ from differents services:</p>
 <li>github</li>
 </ul><h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
-<pre><code>php
-// $service = 'twitter';
-// $username = 'lyrixx';
+<pre><code>&lt;?php
 
-$browser = new Buzz\Browser(new Buzz\Client\Curl())
-$factory = new Lyrixx\Lifestream\LifestreamFactory($browser);
+$service = 'twitter';
+$username = 'lyrixx';
+
+$factory = new Lyrixx\Lifestream\LifestreamFactory();
 
 $status = $factory
     -&gt;createLifestream($service, $username)
-    -&gt;addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
-    -&gt;addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
+    -&gt;addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+    -&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     -&gt;boot()
     -&gt;getStream()
 ;
+
 foreach ($status as $key =&gt; $value) {
-    echo $value;
+    echo $value.'&lt;br /&gt;';
 }
 </code></pre>
 

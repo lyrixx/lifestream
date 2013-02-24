@@ -9,9 +9,8 @@ layout:  doc
 Description
 -----------
 
-Lifestream is a stream unifier for PHP.
-Thanks to this lib, you could easily fetch *last datas / status*
-from differents services:
+Lifestream is a stream unifier for PHP. Thanks to this lib, you could easily
+fetch *last datas / status* from differents services:
 
 -  twitter
 -  flickr
@@ -22,22 +21,23 @@ from differents services:
 Usage
 -----
 
-    php
-    // $service = 'twitter';
-    // $username = 'lyrixx';
+    <?php
 
-    $browser = new Buzz\Browser(new Buzz\Client\Curl())
-    $factory = new Lyrixx\Lifestream\LifestreamFactory($browser);
+    $service = 'twitter';
+    $username = 'lyrixx';
+
+    $factory = new Lyrixx\Lifestream\LifestreamFactory();
 
     $status = $factory
         ->createLifestream($service, $username)
-        ->addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
-        ->addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
+        ->addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+        ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
         ->boot()
         ->getStream()
     ;
+
     foreach ($status as $key => $value) {
-        echo $value;
+        echo $value.'<br />';
     }
 
 For an extensive demo, look
