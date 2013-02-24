@@ -4,14 +4,9 @@ namespace Lyrixx\Lifestream\Tests\Filter;
 
 use Lyrixx\Lifestream\Filter\TwitterMention;
 
-class TwitterTest extends \PHPUnit_Framework_TestCase
+class TwitterMentioTest extends AbstractTest
 {
-    public function setUp()
-    {
-        $this->twitter = new TwitterMention();
-    }
-
-    public function getInvalidateMentionTests()
+    public function getFilterTests()
     {
         return array(
             array(true, ''),
@@ -22,24 +17,8 @@ class TwitterTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @dataProvider getInvalidateMentionTests
-     */
-    public function testInvalidateMention($expected, $text)
+    protected function createNewFilter()
     {
-        $status = $this->getMock('Lyrixx\Lifestream\StatusInterface');
-        $status
-            ->expects($this->any())
-            ->method('getText')
-            ->will($this->returnValue($text))
-        ;
-
-        $this->assertSame($expected, $this->twitter->isValid($status));
-    }
-
-
-    public function tearDown()
-    {
-        $this->twitter = null;
+        return new TwitterMention();
     }
 }

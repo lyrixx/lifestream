@@ -4,14 +4,9 @@ namespace Lyrixx\Lifestream\Tests\Filter;
 
 use Lyrixx\Lifestream\Filter\TwitterRetweet;
 
-class TwitterRetweetTest extends \PHPUnit_Framework_TestCase
+class TwitterRetweetTest extends AbstractTest
 {
-    public function setUp()
-    {
-        $this->twitter = new TwitterRetweet();
-    }
-
-    public function getInvalidateRetweetTests()
+    public function getFilterTests()
     {
         return array(
             array(true, ''),
@@ -22,23 +17,8 @@ class TwitterRetweetTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @dataProvider getInvalidateRetweetTests
-     */
-    public function testInvalidateRetweet($expected, $text)
+    protected function createNewFilter()
     {
-        $status = $this->getMock('Lyrixx\Lifestream\StatusInterface');
-        $status
-            ->expects($this->any())
-            ->method('getText')
-            ->will($this->returnValue($text))
-        ;
-
-        $this->assertSame($expected, $this->twitter->isValid($status));
-    }
-
-    public function tearDown()
-    {
-        $this->twitter = null;
+        return new TwitterRetweet();
     }
 }
