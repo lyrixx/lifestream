@@ -30,6 +30,11 @@ class LifestreamFactory
         $this->client = $client ?: new Client();
     }
 
+    public static function createNewInstance(Client $client = null)
+    {
+        return new static($client);
+    }
+
     /**
      * Create a Lifestream with a nammed service
      *

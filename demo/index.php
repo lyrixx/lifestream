@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-$factory = new Lyrixx\Lifestream\LifestreamFactory();
+$factory = Lyrixx\Lifestream\LifestreamFactory::createNewInstance();
 
 function get_lifestream($service, $username) {
     global $factory;
