@@ -26,9 +26,7 @@ Usage
     $service = 'twitter';
     $username = 'lyrixx';
 
-    $factory = new Lyrixx\Lifestream\LifestreamFactory();
-
-    $status = $factory
+    $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
         ->createLifestream($service, $username)
         ->addFilter(new Lyrixx\Lifestream\Filter\Twitter())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())

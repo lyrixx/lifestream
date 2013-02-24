@@ -102,9 +102,7 @@ fetch <em>last datas /&nbsp;status</em> from differents services:</p>
 $service = 'twitter';
 $username = 'lyrixx';
 
-$factory = new Lyrixx\Lifestream\LifestreamFactory();
-
-$status = $factory
+$status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
     -&gt;createLifestream($service, $username)
     -&gt;addFilter(new Lyrixx\Lifestream\Filter\Twitter())
     -&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link())
