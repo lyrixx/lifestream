@@ -33,3 +33,4 @@ function display($lifestream, $title = null) {
 echo '<h1>LifeStream</h1>';
 display(get_lifestream('twitter', 'lyrixx'));
 display(get_lifestream('github', 'lyrixx'));
+display(get_lifestream('atom', 'http://feeds.feedburner.com/lyrixblog'));
