@@ -3,7 +3,6 @@
 namespace Lyrixx\Lifestream\Tests\Formatter;
 
 use Lyrixx\Lifestream\Formatter\TwitterHashtag;
-use Lyrixx\Lifestream\Status;
 
 class TwitterHashtagTest extends AbstractTest
 {

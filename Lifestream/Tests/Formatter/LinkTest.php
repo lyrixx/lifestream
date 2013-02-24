@@ -3,7 +3,6 @@
 namespace Lyrixx\Lifestream\Tests\Formatter;
 
 use Lyrixx\Lifestream\Formatter\Link;
-use Lyrixx\Lifestream\Status;
 
 class LinkTest extends AbstractTest
 {

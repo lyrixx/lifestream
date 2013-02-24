@@ -3,7 +3,6 @@
 namespace Lyrixx\Lifestream\Tests\Formatter;
 
 use Lyrixx\Lifestream\Formatter\TwitterMention;
-use Lyrixx\Lifestream\Status;
 
 class TwitterMentionTest extends AbstractTest
 {

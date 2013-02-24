@@ -11,7 +11,7 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
         $this->formatter = $this->createNewFormater();
     }
 
-    public abstract function getFormatTests();
+    abstract public function getFormatTests();
 
     /**
      * @dataProvider getFormatTests
@@ -29,5 +29,5 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
         $this->formatter = null;
     }
 
-    protected abstract function createNewFormater();
+    abstract protected function createNewFormater();
 }

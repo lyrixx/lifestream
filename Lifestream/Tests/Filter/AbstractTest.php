@@ -11,7 +11,7 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
         $this->filter = $this->createNewFilter();
     }
 
-    public abstract function getFilterTests();
+    abstract public function getFilterTests();
 
     /**
      * @dataProvider getFilterTests
@@ -29,5 +29,5 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
         $this->filter = null;
     }
 
-    protected abstract function createNewFilter();
+    abstract protected function createNewFilter();
 }
