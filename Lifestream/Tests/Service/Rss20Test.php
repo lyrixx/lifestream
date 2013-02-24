@@ -1,6 +1,6 @@
 <?php
 
-namespace Lyrixx\Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Service;
 
 use Lyrixx\Lifestream\Service\Rss20 as Rss;
 

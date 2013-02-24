@@ -1,6 +1,6 @@
 <?php
 
-namespace Lyrixx\Lifestream\Tests\Sevice;
+namespace Lyrixx\Lifestream\Tests\Service;
 
 use Guzzle\Http\Client;
 use Guzzle\Plugin\Mock\MockPlugin;
