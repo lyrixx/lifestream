@@ -9,7 +9,7 @@ class AtomTest extends AbstractTest
     public function testGetStatuses()
     {
         $service = new Atom('http://localhost/feed.xml');
-        $service->setBrowser($this->getBrowser(__DIR__.'/Fixtures/Atom.xml'));
+        $service->setClient($this->getClient(__DIR__.'/Fixtures/Atom.xml'));
 
         $statuses = $service->getStatuses();
         $this->assertCount(5, $statuses);
@@ -24,7 +24,7 @@ class AtomTest extends AbstractTest
     {
         return array(
             array(
-                new Atom($name = 'http://localhost/feed.xml', null, $this->getBrowser()),
+                new Atom($name = 'http://localhost/feed.xml', null, $this->getClient()),
                 $name,
                 $name,
                 $name

@@ -23,7 +23,7 @@ abstract class AbstractService implements ServiceInterface
     public function getStatuses()
     {
         foreach ($this->getDatas() as $data) {
-            $this->stream[] = $this->getNewStatus($data);
+            $this->stream[] = $this->createNewStatusInstance($data);
         }
 
         return $this->stream;
@@ -44,7 +44,7 @@ abstract class AbstractService implements ServiceInterface
      *
      * @return StatusInterface A new status
      */
-    protected function getNewStatus($datas = array())
+    protected function createNewStatusInstance($datas = array())
     {
         $class = $this->statusClassname;
 

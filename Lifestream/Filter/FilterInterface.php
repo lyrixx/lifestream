@@ -9,7 +9,6 @@ use Lyrixx\Lifestream\StatusInterface;
  */
 interface FilterInterface
 {
-
     /**
      * Filter a status
      *

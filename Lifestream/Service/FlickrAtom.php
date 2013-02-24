@@ -13,15 +13,15 @@ class FlickrAtom extends Atom
     /**
      * Constructor
      *
-     * @param [type] $browser  A browser
+     * @param [type] $client   A client
      * @param string $userId   The flickr user id
      * @param string $username The flickr username
      */
-    public function __construct($userId, $username, $browser = null)
+    public function __construct($userId, $username, $client = null)
     {
         $feedUrl = sprintf(self::FEED_URL, $userId, $username);
         $profileUrl = sprintf(self::PROFILE_URL, $username);
 
-        parent::__construct($feedUrl, $profileUrl, $browser);
+        parent::__construct($feedUrl, $profileUrl, $client);
     }
 }

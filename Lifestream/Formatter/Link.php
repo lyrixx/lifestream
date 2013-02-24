@@ -13,7 +13,6 @@ use Lyrixx\Lifestream\StatusInterface;
  */
 class Link implements FormatterInterface
 {
-
     public function format(StatusInterface $status)
     {
         return $this->formatHttpLink($status);

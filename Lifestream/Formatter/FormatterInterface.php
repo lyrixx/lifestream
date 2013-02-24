@@ -9,7 +9,6 @@ use Lyrixx\Lifestream\StatusInterface;
  */
 interface FormatterInterface
 {
-
     /**
      * Return a formatted StatusInterface;
      *

@@ -2,6 +2,8 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+
 /**
  * AbstractFeed implements common methods of ServiceFeedInterface
  */
@@ -9,18 +11,18 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
 {
     protected $feedUrl;
     protected $profileUrl;
-    protected $browser;
+    protected $client;
 
     /**
      * Constructor
      *
-     * @param [type] $browser    A browser
+     * @param [type] $client     A client
      * @param string $feedUrl    A Feed url
      * @param string $profileUrl A profileUrl
      */
-    public function __construct($feedUrl, $profileUrl = null, $browser = null)
+    public function __construct($feedUrl, $profileUrl = null, $client = null)
     {
-        $this->browser    = $browser;
+        $this->client     = $client;
         $this->feedUrl    = $feedUrl;
         $this->profileUrl = $profileUrl ?: $feedUrl;
     }
@@ -28,25 +30,21 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     /**
      * {@inheritdoc}
      *
-     * @throws \RunetimeException If Browser failed to fetch data
+     * @throws \RunetimeException If Client failed to fetch data
      */
     protected function getDatas()
     {
-        if (null === $this->browser) {
-            throw new \RuntimeException('You must set up a browser before call AbtractFeed::getDatas()');
+        if (null === $this->client) {
+            throw new \RuntimeException('You must set up a client before call AbtractFeed::getDatas()');
         }
 
-        $response = $this->getBrowser()->get($feedUrl = $this->getFeedUrl());
-
-        if (!$content = $response->getContent()) {
-            throw new \RuntimeException(sprintf('Data fetching failed (feedUrl : "%s")', $feedUrl ));
-        }
+        $response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
 
         if (200 != $response->getStatusCode()) {
-            throw new \RuntimeException(sprintf('Browser faild with "%s" ; Status : "%s"', $feedUrl , $response->getStatusCode()));
+            throw new \RuntimeException(sprintf('Client faild with "%s" ; Status : "%s"', $feedUrl , $response->getStatusCode()));
         }
 
-        $xml = new \SimpleXMLElement($content);
+        $xml = new \SimpleXMLElement($response->getBody());
 
         return $this->extractDatas($xml);
     }
@@ -74,9 +72,9 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     /**
      * {@inheritdoc}
      */
-    public function setBrowser($browser)
+    public function setClient(Client $client)
     {
-        $this->browser = $browser;
+        $this->client = $client;
 
         return $this;
     }
@@ -95,15 +93,5 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     public function getProfileUrl()
     {
         return $this->profileUrl;
-    }
-
-    /**
-     * Return the current browser
-     *
-     * @return [type] The browser
-     */
-    protected function getBrowser()
-    {
-        return $this->browser;
     }
 }

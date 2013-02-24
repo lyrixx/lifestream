@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "dev-master"
+        "guzzle/guzzle": "~3"
     },
     "require-dev": {
         "pimple/pimple": "dev-master"
@@ -23,6 +23,5 @@
             "Lyrixx": ""
         }
     },
-    "target-dir": "Lyrixx",
-    "minimum-stability": "dev"
+    "target-dir": "Lyrixx"
 }

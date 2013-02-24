@@ -1,17 +1,16 @@
 <?php
-// Add the autoloader
+
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-$browser = new Buzz\Browser(new Buzz\Client\Curl());
-$factory = new Lyrixx\Lifestream\LifestreamFactory($browser);
+$factory = new Lyrixx\Lifestream\LifestreamFactory();
 
 function get_lifestream($service, $username) {
-    global $browser, $factory;
+    global $factory;
 
     return $factory
         ->createLifestream($service, $username)
-        ->addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
-        ->addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
+        ->addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+        ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     ;
 }
 
@@ -22,7 +21,7 @@ function display($lifestream, $title = null) {
         echo '</a>';
     echo '</h2>';
     echo '<ul>';
-        foreach ($lifestream->boot()->getStream() as $status) {
+        foreach ($lifestream->boot()->getStream(8) as $status) {
             echo '<li>';
                 echo $status;
             echo '</li>';
@@ -30,7 +29,6 @@ function display($lifestream, $title = null) {
     echo '</ul>';
     echo '<hr>';
 }
-
 
 echo '<h1>LifeStream</h1>';
 display(get_lifestream('twitter', 'lyrixx'));

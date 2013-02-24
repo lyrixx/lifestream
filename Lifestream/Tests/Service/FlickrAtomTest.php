@@ -9,7 +9,7 @@ class FlickrAtomTest extends AbstractTest
     public function testGetStatuses()
     {
         $service = new Flickr(34871318, 'xavierbriand');
-        $service->setBrowser($this->getBrowser(__DIR__.'/Fixtures/FlickrAtom.xml'));
+        $service->setClient($this->getClient(__DIR__.'/Fixtures/FlickrAtom.xml'));
 
         $statuses = $service->getStatuses();
         $this->assertCount(20, $statuses);
@@ -24,7 +24,7 @@ class FlickrAtomTest extends AbstractTest
     {
         return array(
             array(
-                new Flickr(34871318, 'xavierbriand', $this->getBrowser()),
+                new Flickr(34871318, 'xavierbriand', $this->getClient()),
                 'http://api.flickr.com/services/feeds/photos_public.gne?id=34871318@N02&lang=en-us&format=rss_200',
                 'http://www.flickr.com/photos/xavierbriand',
                 'http://www.flickr.com/photos/xavierbriand'

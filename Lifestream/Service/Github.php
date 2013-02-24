@@ -12,14 +12,14 @@ class Github extends Atom
 
     /**
      * Constructor
-     * @param [type] $browser  The browser
+     * @param [type] $client   The client
      * @param string $username The github username
      */
-    public function __construct($username, $browser = null)
+    public function __construct($username, $client = null)
     {
         $feedUrl = sprintf(self::FEED_URL, $username);
         $profileUrl = sprintf(self::PROFILE_URL, $username);
 
-        parent::__construct($feedUrl, $profileUrl, $browser);
+        parent::__construct($feedUrl, $profileUrl, $client);
     }
 }

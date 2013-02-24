@@ -2,22 +2,22 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+
 /**
- * ServiceFeedInterface will be in charges to
- * fetch remotes (over http) datas,
+ * ServiceFeedInterface will be in charges to fetch remotes (over http) datas,
  * and convert each status to a StatusInterface object.
  */
 interface ServiceFeedInterface extends ServiceInterface
 {
-
     /**
-     * Set a browser
+     * Set a client
      *
      * @todo Use a typint here
      *
-     * @param [type] $browser A browser
+     * @param [type] $client A client
      */
-    public function setBrowser($browser);
+    public function setClient(Client $client);
 
     /**
      * Return the full url to the feed.

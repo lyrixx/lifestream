@@ -2,6 +2,10 @@
 
 namespace Lyrixx\Lifestream\Tests\Sevice;
 
+use Guzzle\Http\Client;
+use Guzzle\Plugin\Mock\MockPlugin;
+use Guzzle\Http\Message\Response;
+
 abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -16,22 +20,21 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 
     abstract public function getMetadataTest();
 
-    public function getBrowser($fixtureFilePath = null)
+    public function getClient($fixtureFilePath = null)
     {
-        if (null == $fixtureFilePath) {
-            return $this->getMock('Buzz\Browser');
+        if (null === $fixtureFilePath) {
+            return $this->getMock('Guzzle\Http\Client');
         }
-        $response = new \Buzz\Message\Response();
-        $response->setContent(file_get_contents($fixtureFilePath));
-        $response->setHeaders(array('HTTP/1.1 200 OK'));
 
-        $browser = $this->getMock('Buzz\Browser');
-        $browser
-            ->expects($this->once())
-            ->method('get')
-            ->will($this->returnValue($response))
-        ;
+        $response = new Response(200);
+        $response->setBody(file_get_contents($fixtureFilePath));
 
-        return $browser;
+        $mock = new MockPlugin();
+        $mock->addResponse($response);
+
+        $client = new Client();
+        $client->addSubscriber($mock);
+
+        return $client;
     }
 }

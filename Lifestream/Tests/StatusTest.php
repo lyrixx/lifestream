@@ -7,8 +7,8 @@ use Lyrixx\Lifestream\Status;
 /**
  * Test class for StatusStream.
  */
-class StatusTest extends \PHPUnit_Framework_TestCase {
-
+class StatusTest extends \PHPUnit_Framework_TestCase
+{
     public function testAddStatus()
     {
         $datas = array(

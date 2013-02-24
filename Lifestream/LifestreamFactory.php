@@ -4,13 +4,14 @@ namespace Lyrixx\Lifestream;
 
 use Lyrixx\Lifestream\Formatter\FormatterInterface;
 use Lyrixx\Lifestream\Service\ServiceFeedInterface;
+use Guzzle\Http\Client;
 
 /**
  * LifestreamFactory. Use to create lifestream for ServiceFeedInterface
  */
 class LifestreamFactory
 {
-    private $browser;
+    private $client;
 
     private $services = array(
         'twitter' => 'Lyrixx\Lifestream\Service\Twitter',
@@ -22,11 +23,11 @@ class LifestreamFactory
     /**
      * Conctructor
      *
-     * @param mixed $browser The browser
+     * @param mixed $client The client
      */
-    public function __construct($browser)
+    public function __construct(Client $client = null)
     {
-        $this->browser = $browser;
+        $this->client = $client ?: new Client();
     }
 
     /**
@@ -51,7 +52,7 @@ class LifestreamFactory
 
         $className = $this->services[$service];
         $service = new $className($username);
-        $service->setBrowser($this->browser);
+        $service->setClient($this->client);
 
         $lifestream = new Lifestream($service, $filters, $formatters);
 

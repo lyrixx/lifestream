@@ -10,26 +10,25 @@ use Lyrixx\Lifestream\StatusInterface;
  */
 interface ServiceInterface
 {
-
     /**
-     * Return a collection of StatusInterface
+     * Returns a collection of StatusInterface
      *
      * @return array A colection StatusInterface
      */
     public function getStatuses();
 
     /**
-     * Return the service name
+     * Returns the service name
      *
      * @return string The service name
      */
     public function getName();
 
     /**
-     * set the status classname.
+     * Sets the status classname.
      * Must implement StatusInterface.
      *
-     * I will be use to create a new StatusInterface with fetched datas
+     * I will be used to create a new StatusInterface with fetched datas
      *
      * @param string $statusClassname The status classname
      */
