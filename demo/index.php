@@ -9,7 +9,7 @@ function get_lifestream($service, $username) {
 
     return $factory
         ->createLifestream($service, $username)
-        ->addFilter(new Lyrixx\Lifestream\Filter\Twitter())
+        ->addFilter(new Lyrixx\Lifestream\Filter\Twitter(Lyrixx\Lifestream\Filter\Twitter::FILTER_REPLY))
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     ;
 }
