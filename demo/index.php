@@ -4,20 +4,30 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 $factory = Lyrixx\Lifestream\LifestreamFactory::createNewInstance();
 
-function get_lifestream($service, $username) {
+function get_lifestream($service, $username)
+{
     global $factory;
 
-    return $factory
+    $lifestream = $factory
         ->createLifestream($service, $username)
         ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     ;
+    if ('twitter' == $service) {
+        $lifestream
+            ->addFormatter(new Lyrixx\Lifestream\Formatter\TwitterMention())
+            ->addFormatter(new Lyrixx\Lifestream\Formatter\TwitterHashtag())
+        ;
+    }
+
+    return $lifestream;
 }
 
-function display($lifestream, $title = null) {
+function display($lifestream)
+{
     echo '<h2>';
         echo '<a href="' . $lifestream->getService()->getProfileUrl() . '">';
-            echo $title ?: $lifestream->getService()->getName();
+            echo $lifestream->getService()->getName();
         echo '</a>';
     echo '</h2>';
     echo '<ul>';
@@ -29,6 +39,8 @@ function display($lifestream, $title = null) {
     echo '</ul>';
     echo '<hr>';
 }
+
+header('Content-Type: text/html; charset=utf-8');
 
 echo '<h1>LifeStream</h1>';
 display(get_lifestream('twitter', 'lyrixx'));
