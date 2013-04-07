@@ -14,10 +14,11 @@ class LifestreamFactory
     private $client;
 
     private $services = array(
-        'twitter' => 'Lyrixx\Lifestream\Service\Twitter',
-        'github'  => 'Lyrixx\Lifestream\Service\Github',
-        'rss20'   => 'Lyrixx\Lifestream\Service\Rss20',
-        'atom'    => 'Lyrixx\Lifestream\Service\Atom',
+        'twitter'        => 'Lyrixx\Lifestream\Service\Twitter',
+        'twitter_search' => 'Lyrixx\Lifestream\Service\TwitterSearch',
+        'github'         => 'Lyrixx\Lifestream\Service\Github',
+        'rss20'          => 'Lyrixx\Lifestream\Service\Rss20',
+        'atom'           => 'Lyrixx\Lifestream\Service\Atom',
     );
 
     /**
