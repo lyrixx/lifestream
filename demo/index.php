@@ -13,7 +13,7 @@ function get_lifestream($service, $username)
         ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     ;
-    if ('twitter' == $service) {
+    if ('twitter' === $service || 'twitter_search' === $service) {
         $lifestream
             ->addFormatter(new Lyrixx\Lifestream\Formatter\TwitterMention())
             ->addFormatter(new Lyrixx\Lifestream\Formatter\TwitterHashtag())
@@ -46,3 +46,4 @@ echo '<h1>LifeStream</h1>';
 display(get_lifestream('twitter', 'lyrixx'));
 display(get_lifestream('github', 'lyrixx'));
 display(get_lifestream('atom', 'http://feeds.feedburner.com/lyrixblog'));
+display(get_lifestream('twitter_search', '#symfony'));
