@@ -4,12 +4,15 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 $factory = Lyrixx\Lifestream\LifestreamFactory::createNewInstance();
 
-function get_lifestream($service, $username)
+function get_lifestream($service, $username /**, $someExtraArgs */)
 {
     global $factory;
 
+    $args = func_get_args();
+    $service = array_shift($args);
+
     $lifestream = $factory
-        ->createLifestream($service, $username)
+        ->createLifestream($service, $args)
         ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     ;
