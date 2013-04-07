@@ -7,7 +7,7 @@ namespace Lyrixx\Lifestream\Service;
  */
 class Twitter extends Atom
 {
-    const FEED_URL    = 'http://search.twitter.com/search.atom?q=from%%3A%%40%s';
+    const FEED_URL    = 'https://search.twitter.com/search.atom?q=from%%3A%%40%s';
     const PROFILE_URL = 'https://twitter.com/%s';
 
     /**

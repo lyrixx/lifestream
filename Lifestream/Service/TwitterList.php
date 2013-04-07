@@ -9,7 +9,7 @@ class TwitterList extends AbstractFeed
 {
     const FEED_URL    = 'https://api.twitter.com/1/lists/statuses.json?owner_screen_name=%s&slug=%s&include_entities=true';
     const PROFILE_URL = 'https://twitter.com/%s/%s';
-    const TWEET_URL   = 'https://twitter.com/%s/status/%s';
+    const TWEET_URL   = 'https://twitter.com/%s/statuses/%s';
 
     /**
      * Constructor

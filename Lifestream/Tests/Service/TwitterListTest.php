@@ -16,7 +16,7 @@ class TwitterListTest extends AbstractTest
 
         $firstStatus = $statuses[0];
         $this->assertEquals('@lyrixx un autre jour ;)', $firstStatus->getText());
-        $this->assertEquals('https://twitter.com/futurecat/status/320926532933672961', $firstStatus->getUrl());
+        $this->assertEquals('https://twitter.com/futurecat/statuses/320926532933672961', $firstStatus->getUrl());
         $this->assertEquals('2013-04-07', $firstStatus->getDate()->format('Y-m-d'));
     }
 
