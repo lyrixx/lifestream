@@ -50,3 +50,4 @@ display(get_lifestream('twitter', 'lyrixx'));
 display(get_lifestream('github', 'lyrixx'));
 display(get_lifestream('atom', 'http://feeds.feedburner.com/lyrixblog'));
 display(get_lifestream('twitter_search', '#symfony'));
+display(get_lifestream('twitter_list', 'futurecat', 'sensio'));

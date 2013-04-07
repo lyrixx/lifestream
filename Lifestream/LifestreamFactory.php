@@ -16,6 +16,7 @@ class LifestreamFactory
     private $services = array(
         'twitter'        => 'Lyrixx\Lifestream\Service\Twitter',
         'twitter_search' => 'Lyrixx\Lifestream\Service\TwitterSearch',
+        'twitter_list'   => 'Lyrixx\Lifestream\Service\TwitterList',
         'github'         => 'Lyrixx\Lifestream\Service\Github',
         'rss20'          => 'Lyrixx\Lifestream\Service\Rss20',
         'atom'           => 'Lyrixx\Lifestream\Service\Atom',
