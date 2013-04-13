@@ -83,14 +83,12 @@
 
 <h4 id="add-package-to-your-composer-json-">Add package to your composer.json:<a href="#add-package-to-your-composer-json-" class="anchor">#</a></h4>
 
-<pre><code>bash
-composer require lyrixx/lifestream-silex-prodvider:dev-master
+<pre><code>composer require lyrixx/lifestream-silex-prodvider:dev-master
 </code></pre>
 
 <h4 id="load-extensions-">Load extensions:<a href="#load-extensions-" class="anchor">#</a></h4>
 
-<pre><code>php
-use Silex\Application;
+<pre><code>use Silex\Application;
 
 use MarcW\Silex\Provider\BuzzServiceProvider;
 use Lyrixx\Lifestream\Silex\Provider\LifestreamServiceProvider;
@@ -105,8 +103,7 @@ on <code>MarcW\Silex\Provider\BuzzServiceProvider</code>.</p>
 
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
-<pre><code>php
-// $service = 'twitter';
+<pre><code>// $service = 'twitter';
 // $username = 'lyrixx';
 
 $factory = $app['lifestream.factory'];

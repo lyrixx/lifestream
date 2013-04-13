@@ -10,13 +10,11 @@ Installation
 
 #### Add package to your composer.json:
 
-    bash
     composer require lyrixx/lifestream-silex-prodvider:dev-master
 
 #### Load extensions:
 
 
-    php
     use Silex\Application;
 
     use MarcW\Silex\Provider\BuzzServiceProvider;
@@ -32,7 +30,6 @@ on `MarcW\Silex\Provider\BuzzServiceProvider`.
 Usage
 -----
 
-    php
     // $service = 'twitter';
     // $username = 'lyrixx';
 
