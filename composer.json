@@ -3,7 +3,7 @@
     "description":  "Fetch some feeds in an unified way",
     "type":         "library",
     "keywords":     ["lifestream", "api", "feed", "stream", "twitter", "github", "flickr", "rss", "atom"],
-    "homepage":     "http://lyrixx.github.com/lifestream/",
+    "homepage":     "http://lyrixx.github.io/lifestream/",
     "license":      "MIT",
     "authors": [
         {
@@ -15,13 +15,13 @@
     "require": {
         "guzzle/guzzle": "~3"
     },
-    "require-dev": {
-        "pimple/pimple": "dev-master"
-    },
     "autoload": {
-        "psr-0": {
-            "Lyrixx": ""
-        }
+        "psr-0": { "Lyrixx": "" }
     },
-    "target-dir": "Lyrixx"
+    "target-dir": "Lyrixx",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
 }
