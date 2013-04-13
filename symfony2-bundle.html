@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Silex Provider</title>
+    <title>Symfony2 Bundle</title>
 
     <meta name="description" content="A stream unifier for PHP">
     <meta name="author" content="Grégoire Pineau">
@@ -37,13 +37,14 @@
                   <a class="brand" href=".">Lifestream</a>
                   <div class="nav-collapse collapse">
                     <ul class="nav">
-                                                                                                                                              <li class="active"><a href="./silex-provider.html">Silex Provider</a></li>
-                                                                                                                        <li><a href="./symfony2-bundle.html">Symfony2 Bundle</a></li>
+                                                                                                                                              <li><a href="./silex-provider.html">Silex Provider</a></li>
+                                                                                                                        <li class="active"><a href="./symfony2-bundle.html">Symfony2 Bundle</a></li>
                                                                                                                         <li><a href="./api/master/index.html">API</a></li>
                                                                                                           
     <li class="divider-vertical"></li>
                         <li><a href="#installation">Installation</a></li>
                     <li><a href="#usage">Usage</a></li>
+                    <li><a href="#extends">Extends</a></li>
                                 </ul>
                         <ul class="nav pull-right">
         <li class="dropdown">
@@ -76,55 +77,96 @@
                   <div class="row">
             <div class="span10 offset1 content">
                                                 <div class="page-header">
-                    <h1>Silex Provider</h1>
+                    <h1>Symfony2 Bundle</h1>
                   </div>
                               
               <h2 id="installation">Installation<a href="#installation" class="anchor">#</a></h2>
 
 <h4 id="add-package-to-your-composer-json-">Add package to your composer.json:<a href="#add-package-to-your-composer-json-" class="anchor">#</a></h4>
 
-<pre><code>bash
-composer require lyrixx/lifestream-silex-prodvider:dev-master
+<pre><code>composer require lyrixx/lifestream-bundle:~1.0
 </code></pre>
 
-<h4 id="load-extensions-">Load extensions:<a href="#load-extensions-" class="anchor">#</a></h4>
+<h4 id="register-the-bundle-in-the-kernel-">Register the bundle in the kernel:<a href="#register-the-bundle-in-the-kernel-" class="anchor">#</a></h4>
 
-<pre><code>php
-use Silex\Application;
-
-use MarcW\Silex\Provider\BuzzServiceProvider;
-use Lyrixx\Lifestream\Silex\Provider\LifestreamServiceProvider;
-
-$app = new Application();
-$app-&gt;register(new BuzzServiceProvider());
-$app-&gt;register(new LifestreamServiceProvider());
+<pre><code>// app/AppKernel.php
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new Lyrixx\Bundle\LifestreamBundle\LyrixxLifestreamBundle(),
+            // ..
+        );
+        // ...
+    }
+}
 </code></pre>
 
-<p><strong>Note:</strong> <code>LifestreamServiceProvider</code> have a dependancy
-on <code>MarcW\Silex\Provider\BuzzServiceProvider</code>.</p>
+<h3 id="configuration-">Configuration:<a href="#configuration-" class="anchor">#</a></h3>
+
+<p>If you want to have a service which will fetch all tweets containing #symfony2
+hashtag, register the following configuration in <code>app/config/config.yml</code></p>
+
+<pre><code>lyrixx_lifestream:
+    lifestream:
+        twitter_symfony:
+            service: twitter_search
+            args:
+                - "#symfony2"
+</code></pre>
+
+<p>You can add some filters and/or formatters to a lifestream:</p>
+
+<pre><code>lyrixx_lifestream:
+    lifestream:
+        twitter_symfony:
+            service: twitter_search
+            args:
+                - "#symfony2"
+            formatters:
+                - link
+                - twitter_hashtag
+                - twitter_mention
+            filters:
+                - twitter_mention
+</code></pre>
+
+<p>You can find the list of service, filter, formatter available in <code>services.xml</code>.</p>
 
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
-<pre><code>php
-// $service = 'twitter';
-// $username = 'lyrixx';
-
-$factory = $app['lifestream.factory'];
-
-// Throw a 404 if the service in not available
-$app['lifestream.check_service']($service);
-
-$status = $factory
-    -&gt;createLifestream($service, $username)
-    -&gt;addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
-    -&gt;addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
-    -&gt;boot()
-    -&gt;getStream()
-;
-foreach ($status as $key =&gt; $value) {
-    echo $value;
-}
+<pre><code>// From a controller:
+$stream = $this-&gt;get('lyrixx.lifestream.my.twitter_symfony')-&gt;boot()-&gt;getStream();
 </code></pre>
+
+<h2 id="extends">Extends<a href="#extends" class="anchor">#</a></h2>
+
+<p>You can add new services, formatters or filter by creating a new Symfony2
+service and then by tagging it <strong>with an alias</strong>:</p>
+
+<ul><li><code>lyrixx.lifestream.service</code> for a new service</li>
+<li><code>lyrixx.lifestream.formatter</code> for a new formatter</li>
+<li><code>lyrixx.lifestream.filter</code> for a new filter</li>
+</ul><p>Some samples:</p>
+
+<pre><code>    &lt;service id="lyrixx.lifestream.service.atom" class="%lyrixx.lifestream.service.atom.class%" abstract="true" public="false"&gt;
+        &lt;argument /&gt;&lt;!-- username --&gt;
+        &lt;argument type="service" id="lyrixx.lifestream.client" /&gt;
+        &lt;tag name="lyrixx.lifestream.service" alias="atom" /&gt;
+    &lt;/service&gt;
+
+    &lt;service id="lyrixx.lifestream.formatter.twitter_mention" class="%lyrixx.lifestream.formatter.twitter_mention.class%" public="false"&gt;
+        &lt;tag name="lyrixx.lifestream.formatter" alias="twitter_mention" /&gt;
+    &lt;/service&gt;
+
+    &lt;service id="lyrixx.lifestream.filter.twitter_retweet" class="%lyrixx.lifestream.filter.twitter_retweet.class%" public="false"&gt;
+        &lt;tag name="lyrixx.lifestream.filter" alias="twitter_retweet" /&gt;
+    &lt;/service&gt;
+</code></pre>
+
+<p>And then you can use theme with the alias.</p>
                                                         </div>
           </div>
         

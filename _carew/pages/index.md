@@ -65,13 +65,9 @@ Integration
 -----------
 
 -  With [Silex]({{ relativeRoot }}/silex-provider.html)
+-  With [Symfony2]({{ relativeRoot }}/symfony2-bundle.html)
 
 Extensability
 -------------
 
 Of course it's possible to add new Service, Filter or Formatter.
-
-Requirements
-------------
-
--  PHP 5.3
