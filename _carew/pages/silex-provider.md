@@ -10,41 +10,30 @@ Installation
 
 #### Add package to your composer.json:
 
-    composer require lyrixx/lifestream-silex-prodvider:dev-master
+    composer require lyrixx/lifestream-silex-prodvider:~1.0
 
 #### Load extensions:
 
-
     use Silex\Application;
-
-    use MarcW\Silex\Provider\BuzzServiceProvider;
     use Lyrixx\Lifestream\Silex\Provider\LifestreamServiceProvider;
 
     $app = new Application();
-    $app->register(new BuzzServiceProvider());
     $app->register(new LifestreamServiceProvider());
 
-**Note:** `LifestreamServiceProvider` have a dependancy
-on `MarcW\Silex\Provider\BuzzServiceProvider`.
 
 Usage
 -----
 
-    // $service = 'twitter';
-    // $username = 'lyrixx';
+    $service = 'twitter';
+    $username = 'lyrixx';
 
-    $factory = $app['lifestream.factory'];
-
-    // Throw a 404 if the service in not available
-    $app['lifestream.check_service']($service);
-
-    $status = $factory
-        ->createLifestream($service, $username)
-        ->addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
+    $status = $app['lifestream.factory']
+        ->createLifestream($service, array($username))
+        ->addFilter(new \Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
         ->boot()
         ->getStream()
     ;
     foreach ($status as $key => $value) {
-        echo $value;
+        echo $value.'<br />';
     }
