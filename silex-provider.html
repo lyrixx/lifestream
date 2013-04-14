@@ -83,43 +83,32 @@
 
 <h4 id="add-package-to-your-composer-json-">Add package to your composer.json:<a href="#add-package-to-your-composer-json-" class="anchor">#</a></h4>
 
-<pre><code>composer require lyrixx/lifestream-silex-prodvider:dev-master
+<pre><code>composer require lyrixx/lifestream-silex-prodvider:~1.0
 </code></pre>
 
 <h4 id="load-extensions-">Load extensions:<a href="#load-extensions-" class="anchor">#</a></h4>
 
 <pre><code>use Silex\Application;
-
-use MarcW\Silex\Provider\BuzzServiceProvider;
 use Lyrixx\Lifestream\Silex\Provider\LifestreamServiceProvider;
 
 $app = new Application();
-$app-&gt;register(new BuzzServiceProvider());
 $app-&gt;register(new LifestreamServiceProvider());
 </code></pre>
 
-<p><strong>Note:</strong> <code>LifestreamServiceProvider</code> have a dependancy
-on <code>MarcW\Silex\Provider\BuzzServiceProvider</code>.</p>
-
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
-<pre><code>// $service = 'twitter';
-// $username = 'lyrixx';
+<pre><code>$service = 'twitter';
+$username = 'lyrixx';
 
-$factory = $app['lifestream.factory'];
-
-// Throw a 404 if the service in not available
-$app['lifestream.check_service']($service);
-
-$status = $factory
-    -&gt;createLifestream($service, $username)
-    -&gt;addFilter(new \Lyrixx\Lifestream\Filter\Twitter())
+$status = $app['lifestream.factory']
+    -&gt;createLifestream($service, array($username))
+    -&gt;addFilter(new \Lyrixx\Lifestream\Filter\TwitterMention())
     -&gt;addFormatter(new \Lyrixx\Lifestream\Formatter\Link())
     -&gt;boot()
     -&gt;getStream()
 ;
 foreach ($status as $key =&gt; $value) {
-    echo $value;
+    echo $value.'&lt;br /&gt;';
 }
 </code></pre>
                                                         </div>

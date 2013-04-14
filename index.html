@@ -47,7 +47,6 @@
                     <li><a href="#filter">Filter</a></li>
                     <li><a href="#formatter">Formatter</a></li>
                     <li><a href="#integration">Integration</a></li>
-                    <li><a href="#extensability">Extensability</a></li>
                                 </ul>
                         <ul class="nav pull-right">
         <li class="dropdown">
@@ -103,7 +102,7 @@ $service = 'twitter';
 $username = 'lyrixx';
 
 $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
-    -&gt;createLifestream($service, $username)
+    -&gt;createLifestream($service, array($username))
     -&gt;addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
     -&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link())
     -&gt;boot()
@@ -115,17 +114,16 @@ foreach ($status as $key =&gt; $value) {
 }
 </code></pre>
 
-<p>For an extensive demo, look
+<p>For an extensive demo, look at
 <a href="https://github.com/lyrixx/lifestream/blob/master/demo/index.php">demo/index.php</a>
 file.</p>
 
 <h2 id="filter">Filter<a href="#filter" class="anchor">#</a></h2>
 
-<p>You could filter each status with filters:</p>
+<p>You could filter each status with some filters:</p>
 
-<ul><li>remove direct mention from twitter stream</li>
+<ul><li>remove mention from twitter stream</li>
 <li>remove RT from twitter stream</li>
-<li>remove status wich contains specific word</li>
 <li>...</li>
 </ul><h2 id="formatter">Formatter<a href="#formatter" class="anchor">#</a></h2>
 
@@ -133,14 +131,13 @@ file.</p>
 
 <ul><li>Transform a text link into an html link</li>
 <li>Transform an twitter mention into an html link</li>
+<li>Transform an twitter hashtag into an html link</li>
 <li>...</li>
 </ul><h2 id="integration">Integration<a href="#integration" class="anchor">#</a></h2>
 
 <ul><li>With <a href="./silex-provider.html">Silex</a></li>
 <li>With <a href="./symfony2-bundle.html">Symfony2</a></li>
-</ul><h2 id="extensability">Extensability<a href="#extensability" class="anchor">#</a></h2>
-
-<p>Of course it's possible to add new Service, Filter or Formatter.</p>
+</ul>
                                                         </div>
           </div>
         
