@@ -2,6 +2,8 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+
 /**
  * Fetch twitter list
  */
@@ -16,9 +18,9 @@ class TwitterList extends AbstractFeed
      *
      * @param string $username The twitter username
      * @param string $list     The twitter list name
-     * @param [type] $client   The client
+     * @param Client $client   The client
      */
-    public function __construct($username, $list, $client = null)
+    public function __construct($username, $list, Client $client = null)
     {
         $feedUrl = sprintf(self::FEED_URL, $username, $list);
         $profileUrl = sprintf(self::PROFILE_URL, $username, $list);

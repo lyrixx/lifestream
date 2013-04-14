@@ -16,11 +16,11 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     /**
      * Constructor
      *
-     * @param [type] $client     A client
      * @param string $feedUrl    A Feed url
      * @param string $profileUrl A profileUrl
+     * @param Client $client     A client
      */
-    public function __construct($feedUrl, $profileUrl = null, $client = null)
+    public function __construct($feedUrl, $profileUrl = null, Client $client = null)
     {
         $this->client     = $client;
         $this->feedUrl    = $feedUrl;

@@ -2,6 +2,8 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+
 /**
  * Fetch twitter search feed
  */
@@ -13,10 +15,10 @@ class TwitterSearch extends Atom
     /**
      * Constructor
      *
-     * @param [type] $client The client
      * @param string $search The twitter search
+     * @param Client $client The client
      */
-    public function __construct($search, $client = null)
+    public function __construct($search, Client $client = null)
     {
         $search = urlencode($search);
         $feedUrl = sprintf(self::FEED_URL, $search);

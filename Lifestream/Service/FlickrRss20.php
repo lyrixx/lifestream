@@ -2,6 +2,8 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+
 /**
  * Fetch flickr feed with RSS 2.0 channel
  */
@@ -13,11 +15,11 @@ class FlickrRss20 extends Rss20
     /**
      * Constructor
      *
-     * @param [type] $client   A client
      * @param string $userId   The flickr user id
      * @param string $username The flickr username
+     * @param Client $client   A client
      */
-    public function __construct($userId, $username, $client = null)
+    public function __construct($userId, $username, Client $client = null)
     {
         $feedUrl = sprintf(self::FEED_URL, $userId, $username);
         $profileUrl = sprintf(self::PROFILE_URL, $username);
