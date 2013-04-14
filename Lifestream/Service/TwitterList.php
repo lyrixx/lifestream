@@ -44,10 +44,10 @@ class TwitterList extends AbstractFeed
      */
     protected function formatDatas($datas)
     {
-        return array(
+        return array_replace($datas, array(
             'text' => $datas['text'],
             'url'  => sprintf(static::TWEET_URL, $datas['user']['screen_name'], $datas['id_str']),
             'date' => new \Datetime($datas['created_at']),
-        );
+        ));
     }
 }

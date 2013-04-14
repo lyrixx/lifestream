@@ -24,4 +24,14 @@ class TwitterSearch extends Atom
 
         parent::__construct($feedUrl, $profileUrl, $client);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function formatDatas($datas)
+    {
+        return array_replace(parent::formatDatas($datas), array(
+            'author' => (array) $datas->author,
+        ));
+    }
 }
