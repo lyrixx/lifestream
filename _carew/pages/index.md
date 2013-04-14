@@ -27,7 +27,7 @@ Usage
     $username = 'lyrixx';
 
     $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
-        ->createLifestream($service, $username)
+        ->createLifestream($service, array($username))
         ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
         ->boot()
@@ -38,18 +38,17 @@ Usage
         echo $value.'<br />';
     }
 
-For an extensive demo, look
+For an extensive demo, look at
 [demo/index.php](https://github.com/lyrixx/lifestream/blob/master/demo/index.php)
 file.
 
 Filter
 ------
 
-You could filter each status with filters:
+You could filter each status with some filters:
 
--  remove direct mention from twitter stream
+-  remove mention from twitter stream
 -  remove RT from twitter stream
--  remove status wich contains specific word
 -  ...
 
 Formatter
@@ -59,6 +58,7 @@ You could format each status with formatters:
 
 -  Transform a text link into an html link
 -  Transform an twitter mention into an html link
+-  Transform an twitter hashtag into an html link
 -  ...
 
 Integration
@@ -66,8 +66,3 @@ Integration
 
 -  With [Silex]({{ relativeRoot }}/silex-provider.html)
 -  With [Symfony2]({{ relativeRoot }}/symfony2-bundle.html)
-
-Extensability
--------------
-
-Of course it's possible to add new Service, Filter or Formatter.
