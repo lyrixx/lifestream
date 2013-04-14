@@ -10,7 +10,7 @@ Installation
 
 #### Add package to your composer.json:
 
-    composer require lyrixx/lifestream-silex-prodvider:~1.0
+    composer require lyrixx/lifestream-silex-provider:~1.0
 
 #### Load extensions:
 
