@@ -18,6 +18,13 @@ fetch *last datas / status* from differents services:
 -  atom feed
 -  github
 
+Installation
+------------
+
+Add package to your `composer.json`:
+
+    composer require lyrixx/lifestream:~1.0
+
 Usage
 -----
 
