@@ -57,14 +57,14 @@ class LifestreamTest extends \PHPUnit_Framework_TestCase
 
     public function testGetStream()
     {
-        $lifestream = new Lifestream($this->getService(30), array(), array(), $this->getStream(30, true));
+        $lifestream = new Lifestream($this->getService(30), array(), array());
         $lifestream->boot();
-        $this->assertEquals(30, $lifestream->getStream());
+        $this->assertCount(30, $lifestream->getStream(null));
     }
 
     private function getService($nbStatus)
     {
-        $status  = $this->getMock('Lyrixx\Lifestream\StatusInterface');
+        $status = $this->getMock('Lyrixx\Lifestream\StatusInterface');
 
         $service = $this->getMock('Lyrixx\Lifestream\Service\ServiceInterface');
         $service
