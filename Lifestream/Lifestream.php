@@ -150,21 +150,18 @@ class Lifestream
     /**
      * Return a StreamInterface with all Statuses
      *
-     * Lifestream::boot() must be called before
-     * this method.
+     * Lifestream::boot() must be called before this method.
      *
-     * @throws \RuntimeException If lifestream is not booted
-     *
-     * @param integer $limit The limit
+     * @throws \LogicException If lifestream is not booted
      *
      * @return StreamInterface The Stream
      */
-    public function getStream($limit = 10)
+    public function getStream()
     {
         if (!$this->isBooted) {
             throw new \LogicException('You must boot Lifestream before try to get stream');
         }
 
-        return $this->stream->getStream($limit);
+        return $this->stream;
     }
 }
