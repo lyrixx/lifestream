@@ -18,6 +18,9 @@ class LinkTest extends AbstractTest
             array('foo <a href="http://www.google.com">www.google.com</a> bar <a href="http://www.google.fr">www.google.fr</a> baz', 'foo http://www.google.com bar http://www.google.fr baz'),
             array('<a href="http://www.google.com/index.php?foo=bar&baz=true">www.google.com/index.php?foo=bar&baz=true</a>', 'http://www.google.com/index.php?foo=bar&baz=true'),
             array('<a href="https://www.google.com/index.php?foo=bar&baz=true">www.google.com/index.php?foo=bar&baz=true</a>', 'https://www.google.com/index.php?foo=bar&baz=true'),
+            array('<a href="http://www.google.com">www.google.com</a>', '<a href="http://www.google.com">www.google.com</a>'),
+            array('<a href=\'http://www.google.com\'>www.google.com</a>', '<a href=\'http://www.google.com\'>www.google.com</a>'),
+            array('<a href="http://www.google.com">www.google.com</a> foo <a href=\'http://www.google.com\'>www.google.com</a>', 'http://www.google.com foo <a href=\'http://www.google.com\'>www.google.com</a>'),
         );
     }
 
