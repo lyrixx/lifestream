@@ -11,29 +11,16 @@ class Stream implements StreamInterface
     /**
      * @var array The stream
      */
-    protected $stream;
-
-    public function __construct()
-    {
-        $this->stream = new \SplDoublyLinkedList();
-    }
+    private $stream = array();
 
     /**
      * {@inheritdoc}
      */
     public function addStatus(StatusInterface $status)
     {
-        $this->stream->push($status);
+        $this->stream[] = $status;
 
         return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getIterator()
-    {
-        return $this->stream;
     }
 
     /**
@@ -44,4 +31,53 @@ class Stream implements StreamInterface
         return count($this->stream);
     }
 
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rewind()
+    {
+        reset($this->stream);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function current()
+    {
+        $var = current($this->stream);
+
+        return $var;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function key()
+    {
+        $var = key($this->stream);
+
+        return $var;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function next()
+    {
+        $var = next($this->stream);
+
+        return $var;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function valid()
+    {
+        $key = key($this->stream);
+        $var = ($key !== NULL && $key !== FALSE);
+
+        return $var;
+    }
 }

@@ -21,20 +21,17 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 
     public function testIterator()
     {
-        $status = new Status();
-        $statues = array();
-
         $stream = new Stream();
         for ($i=0; $i < 10; $i++) {
-            $statusTmp = clone $status;
+            $status = new Status();
+            $status->setText($i);
 
-            $statues[] = $statusTmp;
-            $stream->addStatus($statusTmp);
+            $stream->addStatus($status);
         }
 
         foreach ($stream as $k => $status) {
             $this->assertInstanceOf('Lyrixx\Lifestream\Status', $status);
-            $this->assertSame($statues[$k], $status);
+            $this->assertSame($k, $status->getText());
         }
     }
 }

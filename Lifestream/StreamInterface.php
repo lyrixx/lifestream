@@ -5,7 +5,7 @@ namespace Lyrixx\Lifestream;
 /**
  * StreamInterface represents a collection of StatusInterface
  */
-interface StreamInterface extends \Countable, \IteratorAggregate
+interface StreamInterface extends \Countable, \Iterator
 {
     /**
      * Add a StatusInterface to the stream
