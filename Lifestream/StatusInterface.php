@@ -38,14 +38,14 @@ interface StatusInterface
     public function setDate($date);
 
     /**
-     * @return array The options
+     * @return array The extra
      */
-    public function getOptions();
+    public function getExtra();
 
     /**
-     * @param array $options The options
+     * @param array $extra The extra
      */
-    public function setOptions($options);
+    public function setExtra($extra);
 
     /**
      * @return string

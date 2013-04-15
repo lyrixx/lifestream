@@ -31,7 +31,7 @@ class StatusTest extends \PHPUnit_Framework_TestCase
             'option2' => 'my second option',
             'option3' => 'my third option',
         );
-        $this->assertEquals($options, $status->getOptions(), 'Check Options');
+        $this->assertEquals($options, $status->getExtra(), 'Check Extra');
     }
 
 }

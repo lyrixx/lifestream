@@ -20,7 +20,7 @@ class Rss20Test extends AbstractTest
                 'description' => 'Ceci est ma premiere actualite',
                 'categories'  => array()
             ),
-            $firstStatus->getOptions()
+            $firstStatus->getExtra()
         );
         $this->assertEquals('2002-09-07', $firstStatus->getDate()->format('Y-m-d'));
     }

@@ -23,16 +23,16 @@ class Status implements StatusInterface
     private $date;
 
     /**
-     * @var array Options
+     * @var array Extra
      */
-    private $options;
+    private $extra;
 
     /**
      * Construtor
      *
-     * @param array $datas An array of option.
+     * @param array $datas An array of data.
      *                     Set test, url and date to class attributes.
-     *                     Other datas are stored in options attributes
+     *                     Other datas are stored in extra attributes
      */
     public function __construct(array $datas = array())
     {
@@ -48,7 +48,7 @@ class Status implements StatusInterface
             $this->setDate($datas['date']);
             unset($datas['date']);
         }
-        $this->setOptions($datas);
+        $this->setExtra($datas);
 
     }
 
@@ -109,17 +109,17 @@ class Status implements StatusInterface
     /**
      * {@inheritdoc}
      */
-    public function getOptions()
+    public function getExtra()
     {
-        return $this->options;
+        return $this->extra;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setOptions($options)
+    public function setExtra($extra)
     {
-        $this->options = $options;
+        $this->extra = $extra;
 
         return $this;
     }
