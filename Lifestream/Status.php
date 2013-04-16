@@ -48,8 +48,8 @@ class Status implements StatusInterface
             $this->setDate($datas['date']);
             unset($datas['date']);
         }
-        $this->setExtra($datas);
 
+        $this->setExtra($datas);
     }
 
     /**

@@ -31,7 +31,6 @@ class Stream implements StreamInterface
         return count($this->stream);
     }
 
-
     /**
      * {@inheritdoc}
      */

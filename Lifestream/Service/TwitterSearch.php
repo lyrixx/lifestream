@@ -12,6 +12,8 @@ class TwitterSearch extends Atom
     const FEED_URL    = 'https://search.twitter.com/search.atom?q=%s&include_entities=true';
     const PROFILE_URL = 'https://twitter.com/search/realtime?q=%s';
 
+    protected $statusClassname = 'Lyrixx\Lifestream\Status\AdvancedStatus';
+
     /**
      * Constructor
      *
@@ -32,8 +34,23 @@ class TwitterSearch extends Atom
      */
     protected function formatDatas($datas)
     {
+        $links = array();
+
+        foreach ($datas->link as $link) {
+            $link = (array) $link->attributes();
+            $links[] = $link['@attributes'];
+        }
+
+        $author = (array) $datas->author;
+        preg_match('/(\w+) \((.*)\)/', $author['name'], $matches);
+
         return array_replace(parent::formatDatas($datas), array(
-            'author' => (array) $datas->author,
+            'username' => $matches[1],
+            'fullname' => $matches[2],
+            'pictureUrl' => $links[1]['href'],
+            'profileUrl' => $author['uri'],
+            'links' => $links,
+            'author' => $author,
         ));
     }
 }
