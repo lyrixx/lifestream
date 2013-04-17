@@ -57,6 +57,25 @@ You can add some filters and/or formatters to a lifestream:
 
 You can find the list of service, filter, formatter available in `services.xml`.
 
+You can also add some formatters or filters to all services:
+
+    lyrixx_lifestream:
+        formatters:
+            - link
+            - twitter_hashtag
+            - twitter_mention
+        filters:
+            - twitter_mention
+        lifestream:
+            twitter_symfony:
+                service: twitter_search
+                args:
+                    - "#symfony2"
+            twitter_silex:
+                service: twitter_search
+                args:
+                    - "#silex"
+
 Usage
 -----
 
@@ -89,4 +108,4 @@ Some samples:
             <tag name="lyrixx.lifestream.filter" alias="twitter_retweet" />
         </service>
 
-And then you can use theme with the alias.
+And then you can use them with the alias.

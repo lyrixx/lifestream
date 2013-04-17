@@ -12,9 +12,9 @@ Description
 Lifestream is a stream unifier for PHP. Thanks to this lib, you could easily
 fetch *last datas / status* from differents services:
 
--  twitter
+-  twitter (an account or a search or a list)
 -  flickr
--  rss feed
+-  rss 2.0 feed
 -  atom feed
 -  github
 
