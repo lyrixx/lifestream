@@ -27,7 +27,7 @@ class GithubTest extends AbstractTest
                 new Github('lyrixx', $this->getClient()),
                 'https://github.com/lyrixx.atom',
                 'https://github.com/lyrixx',
-                'https://github.com/lyrixx'
+                'Github'
             ),
         );
     }

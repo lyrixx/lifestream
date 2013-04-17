@@ -27,7 +27,7 @@ class FlickrRss20Test extends AbstractTest
                 new Flickr(34871318, 'xavierbriand', $this->getClient()),
                 'http://api.flickr.com/services/feeds/photos_public.gne?id=34871318@N02&lang=en-us&format=rss_200',
                 'http://www.flickr.com/photos/xavierbriand',
-                'http://www.flickr.com/photos/xavierbriand'
+                'FlickrRss20'
             ),
         );
     }

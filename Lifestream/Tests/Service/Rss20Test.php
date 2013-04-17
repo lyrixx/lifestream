@@ -32,7 +32,7 @@ class Rss20Test extends AbstractTest
                 new Rss($name = 'http://localhost/feed.xml', null, $this->getClient()),
                 $name,
                 $name,
-                $name
+                'Rss20'
             ),
         );
     }

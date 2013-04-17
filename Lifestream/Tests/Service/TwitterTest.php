@@ -27,7 +27,7 @@ class TwitterTest extends AbstractTest
                 new Twitter('lyrixx', $this->getClient()),
                 'https://search.twitter.com/search.atom?q=from%3A%40lyrixx',
                 'https://twitter.com/lyrixx',
-                'https://twitter.com/lyrixx',
+                'Twitter',
             ),
         );
     }

@@ -60,7 +60,9 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      */
     public function getName()
     {
-        return $this->getProfileUrl();
+        $class = explode('\\', get_class($this));
+
+        return end($class);
     }
 
     /**

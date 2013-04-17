@@ -32,7 +32,7 @@ class TwitterListTest extends AbstractTest
                 new TwitterList('futurecat', 'sensio', $this->getClient()),
                 'https://api.twitter.com/1/lists/statuses.json?owner_screen_name=futurecat&slug=sensio&include_entities=true',
                 'https://twitter.com/futurecat/sensio',
-                'https://twitter.com/futurecat/sensio',
+                'TwitterList',
             ),
         );
     }

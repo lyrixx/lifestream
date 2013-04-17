@@ -27,7 +27,7 @@ class AtomTest extends AbstractTest
                 new Atom($name = 'http://localhost/feed.xml', null, $this->getClient()),
                 $name,
                 $name,
-                $name
+                'Atom'
             ),
         );
     }

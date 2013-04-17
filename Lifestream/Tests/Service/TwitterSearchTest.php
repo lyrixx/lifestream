@@ -32,7 +32,7 @@ class TwitterSearchTest extends AbstractTest
                 new TwitterSearch('symfony', $this->getClient()),
                 'https://search.twitter.com/search.atom?q=symfony&include_entities=true',
                 'https://twitter.com/search/realtime?q=symfony',
-                'https://twitter.com/search/realtime?q=symfony',
+                'TwitterSearch',
             ),
         );
     }
