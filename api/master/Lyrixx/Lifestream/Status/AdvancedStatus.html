@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Lyrixx\Lifestream\Status\AdvancedStatus | Lifestream</title>
+                    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../classes.html">Classes</a></li>
+                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Lifestream</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../Lyrixx/Lifestream/Status.html">Lyrixx\Lifestream\Status</a>\AdvancedStatus</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>AdvancedStatus</strong>        extends <a href="../../../Lyrixx/Lifestream/Status.html"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></p>
+
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(array $datas = array())
+                    <p>Construtor</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getText">getText</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_getText"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setText">setText</a>(String $text)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_setText"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUrl">getUrl</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_getUrl"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setUrl">setUrl</a>(string $url)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_setUrl"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getDate">getDate</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_getDate"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setDate">setDate</a>(<a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a> $date)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_setDate"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getExtra">getExtra</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_getExtra"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setExtra">setExtra</a>(array $extra)
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method_setExtra"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p></p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Status.html#method___toString"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getUsername">getUsername</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setUsername">setUsername</a>($username)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getFullname">getFullname</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setFullname">setFullname</a>($fullname)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getPictureUrl">getPictureUrl</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setPictureUrl">setPictureUrl</a>($pictureUrl)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getProfileUrl">getProfileUrl</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setProfileUrl">setProfileUrl</a>($profileUrl)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 14</div>
+        <code>            public            
+    <strong>__construct</strong>(array $datas = array())</code>
+    </h3>
+    <div class="details">
+        <p>Construtor</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$datas</td>
+                <td>An array of data. Set test, url and date to class attributes. Other datas are stored in extra attributes</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getText">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_getText"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 58</div>
+        <code>            public            string
+    <strong>getText</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The text</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setText">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_setText"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 66</div>
+        <code>            public            
+    <strong>setText</strong>(String $text)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>String</td>
+                <td>$text</td>
+                <td>The text</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUrl">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_getUrl"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 76</div>
+        <code>            public            string
+    <strong>getUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The url to the status</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUrl">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_setUrl"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 84</div>
+        <code>            public            
+    <strong>setUrl</strong>(string $url)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>The url to the status</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDate">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_getDate"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 94</div>
+        <code>            public            <a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a>
+    <strong>getDate</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a></td>
+            <td>The date</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setDate">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_setDate"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 102</div>
+        <code>            public            
+    <strong>setDate</strong>(<a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a> $date)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Datetime"><abbr title="Datetime">Datetime</abbr></a></td>
+                <td>$date</td>
+                <td>The date</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getExtra">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_getExtra"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 112</div>
+        <code>            public            array
+    <strong>getExtra</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>The extra</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setExtra">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method_setExtra"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 120</div>
+        <code>            public            
+    <strong>setExtra</strong>(array $extra)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$extra</td>
+                <td>The extra</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Status.html#method___toString"><abbr title="Lyrixx\Lifestream\Status">Status</abbr></a> at line 130</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUsername">
+        <div class="location">at line 40</div>
+        <code>            public            
+    <strong>getUsername</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUsername">
+        <div class="location">at line 45</div>
+        <code>            public            
+    <strong>setUsername</strong>($username)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$username</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFullname">
+        <div class="location">at line 52</div>
+        <code>            public            
+    <strong>getFullname</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFullname">
+        <div class="location">at line 57</div>
+        <code>            public            
+    <strong>setFullname</strong>($fullname)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$fullname</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPictureUrl">
+        <div class="location">at line 64</div>
+        <code>            public            
+    <strong>getPictureUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setPictureUrl">
+        <div class="location">at line 69</div>
+        <code>            public            
+    <strong>setPictureUrl</strong>($pictureUrl)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$pictureUrl</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProfileUrl">
+        <div class="location">at line 76</div>
+        <code>            public            
+    <strong>getProfileUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setProfileUrl">
+        <div class="location">at line 81</div>
+        <code>            public            
+    <strong>setProfileUrl</strong>($profileUrl)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$profileUrl</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

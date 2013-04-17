@@ -119,7 +119,7 @@
                     <a href="../../Lyrixx/Lifestream/StreamInterface.html"><abbr title="Lyrixx\Lifestream\StreamInterface">StreamInterface</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_getStream">getStream</a>(integer $limit = 10)
+                    <a href="#method_getStream">getStream</a>()
                     <p>Return a StreamInterface with all Statuses</p>
                 </td>
                 <td></td>
@@ -343,25 +343,14 @@
     </div>
 
                 <h3 id="method_getStream">
-        <div class="location">at line 162</div>
+        <div class="location">at line 159</div>
         <code>            public            <a href="../../Lyrixx/Lifestream/StreamInterface.html"><abbr title="Lyrixx\Lifestream\StreamInterface">StreamInterface</abbr></a>
-    <strong>getStream</strong>(integer $limit = 10)</code>
+    <strong>getStream</strong>()</code>
     </h3>
     <div class="details">
         <p>Return a StreamInterface with all Statuses</p>
-        <p>Lifestream::boot() must be called before<br />
- this method.</p>
+        <p>Lifestream::boot() must be called before this method.</p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>integer</td>
-                <td>$limit</td>
-                <td>The limit</td>
-            </tr>
-            </table>
-
             
                             <h4>Return Value</h4>
 
@@ -377,7 +366,7 @@
 
                     <table>
                     <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
+                <td><a href="http://php.net/LogicException"><abbr title="LogicException">LogicException</abbr></a></td>
                 <td>If lifestream is not booted</td>
             </tr>
             </table>
