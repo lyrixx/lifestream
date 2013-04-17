@@ -31,24 +31,6 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     }
 
     /**
-     * {@inheritdoc}
-     *
-     * @throws \RuntimeException If Client failed to fetch data
-     */
-    protected function getDatas()
-    {
-        if (!$this->response) {
-            $this->response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
-        }
-
-        if (200 !== $this->response->getStatusCode()) {
-            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $feedUrl , $this->response->getStatusCode()));
-        }
-
-        return $this->extractDatas($this->response->getBody());
-    }
-
-    /**
      * Should extra datas from $xml and return an
      * array with theses data
      *
@@ -96,8 +78,29 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
         return $this->profileUrl;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(Response $response)
     {
         $this->response = $response;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @throws \RuntimeException If Client failed to fetch data
+     */
+    protected function getDatas()
+    {
+        if (!$this->response) {
+            $this->response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
+        }
+
+        if (200 !== $this->response->getStatusCode()) {
+            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $feedUrl , $this->response->getStatusCode()));
+        }
+
+        return $this->extractDatas($this->response->getBody());
     }
 }
