@@ -3,6 +3,7 @@
 namespace Lyrixx\Lifestream\Service;
 
 use Guzzle\Http\Client;
+use Guzzle\Http\Message\Response;
 
 /**
  * AbstractFeed implements common methods of ServiceFeedInterface
@@ -12,6 +13,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     protected $feedUrl;
     protected $profileUrl;
     protected $client;
+    private $response;
 
     /**
      * Constructor
@@ -25,6 +27,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
         $this->client     = $client ?: new Client();
         $this->feedUrl    = $feedUrl;
         $this->profileUrl = $profileUrl ?: $feedUrl;
+        $this->response   = null;
     }
 
     /**
@@ -34,13 +37,15 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      */
     protected function getDatas()
     {
-        $response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
-
-        if (200 != $response->getStatusCode()) {
-            throw new \RuntimeException(sprintf('Client faild with "%s" ; Status : "%s"', $feedUrl , $response->getStatusCode()));
+        if (!$this->response) {
+            $this->response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
         }
 
-        return $this->extractDatas($response->getBody());
+        if (200 !== $this->response->getStatusCode()) {
+            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $feedUrl , $this->response->getStatusCode()));
+        }
+
+        return $this->extractDatas($this->response->getBody());
     }
 
     /**
@@ -89,5 +94,10 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     public function getProfileUrl()
     {
         return $this->profileUrl;
+    }
+
+    public function setResponse(Response $response)
+    {
+        $this->response = $response;
     }
 }

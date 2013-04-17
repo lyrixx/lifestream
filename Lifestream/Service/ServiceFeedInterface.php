@@ -3,6 +3,7 @@
 namespace Lyrixx\Lifestream\Service;
 
 use Guzzle\Http\Client;
+use Guzzle\Http\Message\Response;
 
 /**
  * ServiceFeedInterface will be in charges to fetch remotes (over http) datas,
@@ -33,4 +34,12 @@ interface ServiceFeedInterface extends ServiceInterface
      */
     public function getProfileUrl();
 
+    /**
+     * Set the response
+     *
+     * Usefull for multicurl
+     *
+     * @param Response $response [description]
+     */
+    public function setResponse(Response $response);
 }
