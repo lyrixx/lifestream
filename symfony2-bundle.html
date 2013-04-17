@@ -135,6 +135,26 @@ hashtag, register the following configuration in <code>app/config/config.yml</co
 
 <p>You can find the list of service, filter, formatter available in <code>services.xml</code>.</p>
 
+<p>You can also add some formatters or filters to all services:</p>
+
+<pre><code>lyrixx_lifestream:
+    formatters:
+        - link
+        - twitter_hashtag
+        - twitter_mention
+    filters:
+        - twitter_mention
+    lifestream:
+        twitter_symfony:
+            service: twitter_search
+            args:
+                - "#symfony2"
+        twitter_silex:
+            service: twitter_search
+            args:
+                - "#silex"
+</code></pre>
+
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
 <pre><code>// From a controller:
@@ -166,7 +186,7 @@ service and then by tagging it <strong>with an alias</strong>:</p>
     &lt;/service&gt;
 </code></pre>
 
-<p>And then you can use theme with the alias.</p>
+<p>And then you can use them with the alias.</p>
                                                         </div>
           </div>
         
