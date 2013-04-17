@@ -22,7 +22,7 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
      */
     public function __construct($feedUrl, $profileUrl = null, Client $client = null)
     {
-        $this->client     = $client;
+        $this->client     = $client ?: new Client();
         $this->feedUrl    = $feedUrl;
         $this->profileUrl = $profileUrl ?: $feedUrl;
     }
@@ -30,14 +30,10 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
     /**
      * {@inheritdoc}
      *
-     * @throws \RunetimeException If Client failed to fetch data
+     * @throws \RuntimeException If Client failed to fetch data
      */
     protected function getDatas()
     {
-        if (null === $this->client) {
-            throw new \RuntimeException('You must set up a client before call AbtractFeed::getDatas()');
-        }
-
         $response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
 
         if (200 != $response->getStatusCode()) {
