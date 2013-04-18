@@ -10,7 +10,7 @@ use Guzzle\Http\Message\Response;
  *
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
-class Agregate implements ServiceFeedInterface
+class Agregate implements ServiceInterface
 {
     private $services;
     private $client;

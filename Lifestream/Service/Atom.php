@@ -5,12 +5,12 @@ namespace Lyrixx\Lifestream\Service;
 /**
  * Fetch an atom feed
  */
-class Atom extends AbstractFeed
+class Atom extends AbstractService
 {
     /**
      * {@inheritdoc}
      */
-    protected function extractDatas($datas)
+    protected function extractRawStatuses($datas)
     {
         $xml = new \SimpleXMLElement($datas);
 

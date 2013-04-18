@@ -2,31 +2,70 @@
 
 namespace Lyrixx\Lifestream\Service;
 
+use Guzzle\Http\Client;
+use Guzzle\Http\Message\Response;
+
 /**
  * AbstractService implements common methods of ServiceInterface
  */
 abstract class AbstractService implements ServiceInterface
 {
-    protected $stream          = array();
-    protected $statusClassname = 'Lyrixx\Lifestream\Status';
+    private $statuses;
+    private $statusClassname;
+    private $feedUrl;
+    private $profileUrl;
+    private $client;
+    private $response;
 
     /**
-     * Return an array of raw status
+     * Constructor
      *
-     * @return array A collection of raw status
+     * @param string $feedUrl    A Feed url
+     * @param string $profileUrl A profileUrl
+     * @param Client $client     A client
      */
-    abstract protected function getDatas();
+    public function __construct($feedUrl, $profileUrl = null, Client $client = null)
+    {
+        $this->feedUrl         = $feedUrl;
+        $this->profileUrl      = $profileUrl ?: $feedUrl;
+        $this->client          = $client ?: new Client();
+        $this->response        = null;
+        $this->statuses        = array();
+        $this->statusClassname = 'Lyrixx\Lifestream\Status';
+    }
+
+    /**
+     * Read datas in the response and extract raw status. Should create
+     * something Iterable with some datas. Theses data will be use to create a
+     * new StatusInterface
+     *
+     * @param string
+     * @return array[array] The datas
+     */
+    abstract protected function extractRawStatuses($bodyReponse);
 
     /**
      * {@inheritdoc}
+     *
+     * @throws \RuntimeException If Client failed to fetch data
      */
     public function getStatuses()
     {
-        foreach ($this->getDatas() as $data) {
-            $this->stream[] = $this->createNewStatusInstance($data);
+        if (!$this->response) {
+            $this->response = $this->prepareRequest()->send();
         }
 
-        return $this->stream;
+        if (200 !== $this->response->getStatusCode()) {
+            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $feedUrl , $this->response->getStatusCode()));
+        }
+
+        $statuses = $this->extractRawStatuses($this->response->getBody());
+
+        foreach ($statuses as $status) {
+            $this->statuses[] = $this->createNewStatusInstance($status);
+        }
+
+        return $this->statuses;
     }
 
     /**
@@ -35,6 +74,58 @@ abstract class AbstractService implements ServiceInterface
     public function setStatusClassname($statusClassname)
     {
         $this->statusClassname = $statusClassname;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        $class = explode('\\', get_class($this));
+
+        return end($class);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setClient(Client $client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFeedUrl()
+    {
+        return $this->feedUrl;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProfileUrl()
+    {
+        return $this->profileUrl;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setResponse(Response $response)
+    {
+        $this->response = $response;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prepareRequest()
+    {
+        return $this->client->get($feedUrl = $this->getFeedUrl());
     }
 
     /**

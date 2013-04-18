@@ -12,8 +12,6 @@ class TwitterSearch extends Atom
     const FEED_URL    = 'https://search.twitter.com/search.atom?q=%s&include_entities=true';
     const PROFILE_URL = 'https://twitter.com/search/realtime?q=%s';
 
-    protected $statusClassname = 'Lyrixx\Lifestream\Status\AdvancedStatus';
-
     /**
      * Constructor
      *
@@ -27,6 +25,8 @@ class TwitterSearch extends Atom
         $profileUrl = sprintf(self::PROFILE_URL, $search);
 
         parent::__construct($feedUrl, $profileUrl, $client);
+
+        $this->setStatusClassname('Lyrixx\Lifestream\Status\AdvancedStatus');
     }
 
     /**
