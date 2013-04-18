@@ -128,4 +128,12 @@ class Agregate implements ServiceFeedInterface
     {
         throw new \BadMethodCallException('You can not call setStatusClassname on an AgregateService');
     }
+
+    /**
+     * @throws BadMethodCallException If method is calle
+     */
+    public function prepareRequest()
+    {
+        throw new \BadMethodCallException('You can not call setStatusClassname on an AgregateService');
+    }
 }

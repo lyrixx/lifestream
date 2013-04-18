@@ -4,6 +4,7 @@ namespace Lyrixx\Lifestream\Service;
 
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
+use Guzzle\Http\Message\Request;
 
 /**
  * ServiceFeedInterface will be in charges to fetch remotes (over http) datas,
@@ -16,7 +17,7 @@ interface ServiceFeedInterface extends ServiceInterface
      *
      * @todo Use a typint here
      *
-     * @param [type] $client A client
+     * @param Client $client A client
      */
     public function setClient(Client $client);
 
@@ -42,4 +43,11 @@ interface ServiceFeedInterface extends ServiceInterface
      * @param Response $response [description]
      */
     public function setResponse(Response $response);
+
+    /**
+     * Prepare the request
+     *
+     * @return Request
+     */
+    public function prepareRequest();
 }

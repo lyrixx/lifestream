@@ -88,13 +88,21 @@ abstract class AbstractFeed extends AbstractService implements ServiceFeedInterf
 
     /**
      * {@inheritdoc}
+     */
+    public function prepareRequest()
+    {
+        return $this->client->get($feedUrl = $this->getFeedUrl());
+    }
+
+    /**
+     * {@inheritdoc}
      *
      * @throws \RuntimeException If Client failed to fetch data
      */
     protected function getDatas()
     {
         if (!$this->response) {
-            $this->response = $this->client->get($feedUrl = $this->getFeedUrl())->send();
+            $this->response = $this->prepareRequest()->send();
         }
 
         if (200 !== $this->response->getStatusCode()) {
