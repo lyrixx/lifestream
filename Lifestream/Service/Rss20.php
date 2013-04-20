@@ -5,12 +5,12 @@ namespace Lyrixx\Lifestream\Service;
 /**
  * Fetch RSS 2.0 feed
  */
-class Rss20 extends AbstractFeed
+class Rss20 extends AbstractService
 {
     /**
      * {@inheritdoc}
      */
-    protected function extractDatas($datas)
+    protected function extractRawStatuses($datas)
     {
         $xml = new \SimpleXMLElement($datas);
 
