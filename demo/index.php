@@ -2,16 +2,9 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-$factory = Lyrixx\Lifestream\LifestreamFactory::createNewInstance();
-
-function get_lifestream($service, $username /**, $someExtraArgs */)
+function get_lifestream($service, $args)
 {
-    global $factory;
-
-    $args = func_get_args();
-    $service = array_shift($args);
-
-    $lifestream = $factory
+    $lifestream = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
         ->createLifestream($service, $args)
         ->addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
         ->addFormatter(new Lyrixx\Lifestream\Formatter\Link())
@@ -46,8 +39,8 @@ function display($lifestream)
 header('Content-Type: text/html; charset=utf-8');
 
 echo '<h1>LifeStream</h1>';
-display(get_lifestream('twitter', 'lyrixx'));
-display(get_lifestream('github', 'lyrixx'));
-display(get_lifestream('atom', 'http://feeds.feedburner.com/lyrixblog'));
-display(get_lifestream('twitter_search', '#symfony'));
-display(get_lifestream('twitter_list', 'futurecat', 'sensio'));
+display(get_lifestream('twitter', array('lyrixx')));
+display(get_lifestream('github', array('lyrixx')));
+display(get_lifestream('atom', array('http://feeds.feedburner.com/lyrixblog')));
+display(get_lifestream('twitter_search', array('#symfony')));
+display(get_lifestream('twitter_list', array('futurecat', 'sensio')));
