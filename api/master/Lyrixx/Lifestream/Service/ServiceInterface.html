@@ -25,7 +25,7 @@
                 <p>interface    <strong>ServiceInterface</strong></p>
 
             <div class="description">
-            <p>ServiceInterface will be in charges to fetch datas, and convert each status to a StatusInterface object.</p>
+            <p>ServiceInterface will be in charges to fetch remotes (over http) datas, and convert each status to a StatusInterface object.</p>
             <p></p>
         </div>
     
@@ -36,7 +36,7 @@
             <table>
                     <tr>
                 <td class="type">
-                    array
+                    <a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]
                 </td>
                 <td class="last">
                     <a href="#method_getStatuses">getStatuses</a>()
@@ -64,14 +64,64 @@
                 </td>
                 <td></td>
             </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setClient">setClient</a>(<abbr title="Guzzle\Http\Client">Client</abbr> $client)
+                    <p>Set a client</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getFeedUrl">getFeedUrl</a>()
+                    <p>Return the full url to the feed.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getProfileUrl">getProfileUrl</a>()
+                    <p>Return the full url to the profile</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponse">setResponse</a>(<abbr title="Guzzle\Http\Message\Response">Response</abbr> $response)
+                    <p>Set the response</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Guzzle\Http\Message\Request">Request</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_prepareRequest">prepareRequest</a>()
+                    <p>Prepare the request</p>
+                </td>
+                <td></td>
+            </tr>
             </table>
 
 
         <h2>Details</h2>
 
                         <h3 id="method_getStatuses">
-        <div class="location">at line 18</div>
-        <code>            public            array
+        <div class="location">at line 21</div>
+        <code>            public            <a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]
     <strong>getStatuses</strong>()</code>
     </h3>
     <div class="details">
@@ -83,7 +133,7 @@
 
                     <table>
         <tr>
-            <td>array</td>
+            <td><a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]</td>
             <td>A colection StatusInterface</td>
         </tr>
     </table>
@@ -94,7 +144,7 @@
     </div>
 
                 <h3 id="method_getName">
-        <div class="location">at line 25</div>
+        <div class="location">at line 28</div>
         <code>            public            string
     <strong>getName</strong>()</code>
     </h3>
@@ -118,7 +168,7 @@
     </div>
 
                 <h3 id="method_setStatusClassname">
-        <div class="location">at line 35</div>
+        <div class="location">at line 38</div>
         <code>            public            
     <strong>setStatusClassname</strong>(string $statusClassname)</code>
     </h3>
@@ -139,6 +189,128 @@
             </table>
 
             
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setClient">
+        <div class="location">at line 45</div>
+        <code>            public            
+    <strong>setClient</strong>(<abbr title="Guzzle\Http\Client">Client</abbr> $client)</code>
+    </h3>
+    <div class="details">
+        <p>Set a client</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Guzzle\Http\Client">Client</abbr></td>
+                <td>$client</td>
+                <td>A client</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFeedUrl">
+        <div class="location">at line 52</div>
+        <code>            public            string
+    <strong>getFeedUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the full url to the feed.</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The feed Url</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProfileUrl">
+        <div class="location">at line 59</div>
+        <code>            public            string
+    <strong>getProfileUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the full url to the profile</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The profile url</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponse">
+        <div class="location">at line 68</div>
+        <code>            public            
+    <strong>setResponse</strong>(<abbr title="Guzzle\Http\Message\Response">Response</abbr> $response)</code>
+    </h3>
+    <div class="details">
+        <p>Set the response</p>
+        <p>Usefull for multicurl</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Guzzle\Http\Message\Response">Response</abbr></td>
+                <td>$response</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_prepareRequest">
+        <div class="location">at line 75</div>
+        <code>            public            <abbr title="Guzzle\Http\Message\Request">Request</abbr>
+    <strong>prepareRequest</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Prepare the request</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Guzzle\Http\Message\Request">Request</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

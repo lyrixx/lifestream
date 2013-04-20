@@ -84,7 +84,7 @@
 
 <h4 id="add-package-to-your-composer-json-">Add package to your composer.json:<a href="#add-package-to-your-composer-json-" class="anchor">#</a></h4>
 
-<pre><code>composer require lyrixx/lifestream-bundle:~1.0
+<pre><code>composer require lyrixx/lifestream-bundle:~1.1
 </code></pre>
 
 <h4 id="register-the-bundle-in-the-kernel-">Register the bundle in the kernel:<a href="#register-the-bundle-in-the-kernel-" class="anchor">#</a></h4>
@@ -135,6 +135,8 @@ hashtag, register the following configuration in <code>app/config/config.yml</co
 
 <p>You can find the list of service, filter, formatter available in <code>services.xml</code>.</p>
 
+<h3 id="global-configuration">Global configuration<a href="#global-configuration" class="anchor">#</a></h3>
+
 <p>You can also add some formatters or filters to all services:</p>
 
 <pre><code>lyrixx_lifestream:
@@ -155,6 +157,25 @@ hashtag, register the following configuration in <code>app/config/config.yml</co
                 - "#silex"
 </code></pre>
 
+<h3 id="aggregate-service">Aggregate Service<a href="#aggregate-service" class="anchor">#</a></h3>
+
+<pre><code>lyrixx_lifestream:
+    lifestream:
+        twitter_symfony:
+            service: twitter_search
+            args:
+                - "#symfony2"
+        twitter_silex:
+            service: twitter_search
+            args:
+                - "#silex"
+        twitter_aggregate:
+            service: aggregate
+            args:
+                - twitter_silex   # Same name as above
+                - twitter_symfony # Same name as above
+</code></pre>
+
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
 
 <pre><code>// From a controller:
@@ -172,8 +193,6 @@ service and then by tagging it <strong>with an alias</strong>:</p>
 </ul><p>Some samples:</p>
 
 <pre><code>    &lt;service id="lyrixx.lifestream.service.atom" class="%lyrixx.lifestream.service.atom.class%" abstract="true" public="false"&gt;
-        &lt;argument /&gt;&lt;!-- username --&gt;
-        &lt;argument type="service" id="lyrixx.lifestream.client" /&gt;
         &lt;tag name="lyrixx.lifestream.service" alias="atom" /&gt;
     &lt;/service&gt;
 

@@ -22,7 +22,7 @@
     <h1><a href="../../../Lyrixx/Lifestream/Service.html">Lyrixx\Lifestream\Service</a>\TwitterList</h1>
     </div>
         <div class="content">
-                <p>class    <strong>TwitterList</strong>        extends <a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a></p>
+                <p>class    <strong>TwitterList</strong>        extends <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></p>
 
             <div class="description">
             <p>Fetch twitter list</p>
@@ -79,13 +79,33 @@
             </tr>
                     <tr>
                 <td class="type">
+                    <a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]
+                </td>
+                <td class="last">
+                    <a href="#method_getStatuses">getStatuses</a>()
+                    <p>Returns a collection of StatusInterface</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getStatuses"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setStatusClassname">setStatusClassname</a>(string $statusClassname)
+                    <p>Sets the status classname.</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setStatusClassname"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string
                 </td>
                 <td class="last">
                     <a href="#method_getName">getName</a>()
                     <p>Returns the service name</p>
                 </td>
-                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getName"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a></small></td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getName"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type">
@@ -95,7 +115,7 @@
                     <a href="#method_setClient">setClient</a>(<abbr title="Guzzle\Http\Client">Client</abbr> $client)
                     <p>Set a client</p>
                 </td>
-                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_setClient"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a></small></td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setClient"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type">
@@ -105,7 +125,7 @@
                     <a href="#method_getFeedUrl">getFeedUrl</a>()
                     <p>Return the full url to the feed.</p>
                 </td>
-                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getFeedUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a></small></td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getFeedUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type">
@@ -115,7 +135,27 @@
                     <a href="#method_getProfileUrl">getProfileUrl</a>()
                     <p>Return the full url to the profile</p>
                 </td>
-                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getProfileUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a></small></td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getProfileUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setResponse">setResponse</a>(<abbr title="Guzzle\Http\Message\Response">Response</abbr> $response)
+                    <p>Set the response</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setResponse"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Guzzle\Http\Message\Request">Request</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_prepareRequest">prepareRequest</a>()
+                    <p>Prepare the request</p>
+                </td>
+                <td><small>from&nbsp;<a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_prepareRequest"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a></small></td>
             </tr>
             </table>
 
@@ -123,7 +163,7 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 26</div>
+        <div class="location">at line 24</div>
         <code>            public            
     <strong>__construct</strong>(string $username, string $list, <abbr title="Guzzle\Http\Client">Client</abbr> $client = null)</code>
     </h3>
@@ -157,8 +197,59 @@
                     </div>
     </div>
 
+                <h3 id="method_getStatuses">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getStatuses"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 52</div>
+        <code>            public            <a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]
+    <strong>getStatuses</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns a collection of StatusInterface</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../../Lyrixx/Lifestream/StatusInterface.html"><abbr title="Lyrixx\Lifestream\StatusInterface">StatusInterface</abbr></a>[]</td>
+            <td>A colection StatusInterface</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setStatusClassname">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setStatusClassname"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 74</div>
+        <code>            public            
+    <strong>setStatusClassname</strong>(string $statusClassname)</code>
+    </h3>
+    <div class="details">
+        <p>Sets the status classname.</p>
+        <p>Must implement StatusInterface.<br />
+<br />
+ I will be used to create a new StatusInterface with fetched datas</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$statusClassname</td>
+                <td>The status classname</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
                 <h3 id="method_getName">
-        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getName"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a> at line 65</div>
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getName"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 82</div>
         <code>            public            string
     <strong>getName</strong>()</code>
     </h3>
@@ -182,7 +273,7 @@
     </div>
 
                 <h3 id="method_setClient">
-        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_setClient"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a> at line 73</div>
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setClient"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 92</div>
         <code>            public            
     <strong>setClient</strong>(<abbr title="Guzzle\Http\Client">Client</abbr> $client)</code>
     </h3>
@@ -207,7 +298,7 @@
     </div>
 
                 <h3 id="method_getFeedUrl">
-        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getFeedUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a> at line 83</div>
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getFeedUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 102</div>
         <code>            public            string
     <strong>getFeedUrl</strong>()</code>
     </h3>
@@ -231,7 +322,7 @@
     </div>
 
                 <h3 id="method_getProfileUrl">
-        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractFeed.html#method_getProfileUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractFeed">AbstractFeed</abbr></a> at line 91</div>
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_getProfileUrl"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 110</div>
         <code>            public            string
     <strong>getProfileUrl</strong>()</code>
     </h3>
@@ -246,6 +337,55 @@
         <tr>
             <td>string</td>
             <td>The profile url</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setResponse">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_setResponse"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 118</div>
+        <code>            public            
+    <strong>setResponse</strong>(<abbr title="Guzzle\Http\Message\Response">Response</abbr> $response)</code>
+    </h3>
+    <div class="details">
+        <p>Set the response</p>
+        <p>Usefull for multicurl</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Guzzle\Http\Message\Response">Response</abbr></td>
+                <td>$response</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_prepareRequest">
+        <div class="location">in <a href="../../../Lyrixx/Lifestream/Service/AbstractService.html#method_prepareRequest"><abbr title="Lyrixx\Lifestream\Service\AbstractService">AbstractService</abbr></a> at line 126</div>
+        <code>            public            <abbr title="Guzzle\Http\Message\Request">Request</abbr>
+    <strong>prepareRequest</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Prepare the request</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Guzzle\Http\Message\Request">Request</abbr></td>
+            <td></td>
         </tr>
     </table>
 

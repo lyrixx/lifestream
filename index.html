@@ -45,8 +45,6 @@
                         <li><a href="#description">Description</a></li>
                     <li><a href="#installation">Installation</a></li>
                     <li><a href="#usage">Usage</a></li>
-                    <li><a href="#filter">Filter</a></li>
-                    <li><a href="#formatter">Formatter</a></li>
                     <li><a href="#integration">Integration</a></li>
                                 </ul>
                         <ul class="nav pull-right">
@@ -83,33 +81,46 @@
                     <h1>Lifestream</h1>
                   </div>
                               
-              <p><a href="http://travis-ci.org/lyrixx/lifestream"><img src="https://secure.travis-ci.org/lyrixx/lifestream.png" alt="Build Status"></a></p>
+              <p><a href="https://travis-ci.org/lyrixx/lifestream"><img src="https://travis-ci.org/lyrixx/lifestream.png?branch=master" alt="Build Status"></a></p>
 
 <h2 id="description">Description<a href="#description" class="anchor">#</a></h2>
 
-<p>Lifestream is a stream unifier for PHP. Thanks to this lib, you could easily
-fetch <em>last datas /&nbsp;status</em> from differents services:</p>
+<p>Lifestream is a <strong>stream unifier for PHP</strong>. Thanks to this lib, you could easily
+fetch <strong>last datas /&nbsp;status</strong> from different services:</p>
 
 <ul><li>twitter (an account or a search or a list)</li>
+<li>github</li>
 <li>flickr</li>
 <li>rss 2.0 feed</li>
 <li>atom feed</li>
-<li>github</li>
+</ul><p>Lifestream can also filter some status:</p>
+
+<ul><li>remove mention from twitter stream</li>
+<li>remove RT from twitter stream</li>
+<li>...</li>
+</ul><p>And Lifestream can format each status with formatters:</p>
+
+<ul><li>Transform a text link into an html link</li>
+<li>Transform an twitter mention into an html link</li>
+<li>Transform an twitter hashtag into an html link</li>
+<li>...</li>
 </ul><h2 id="installation">Installation<a href="#installation" class="anchor">#</a></h2>
 
 <p>Add package to your <code>composer.json</code>:</p>
 
-<pre><code>composer require lyrixx/lifestream:~1.0
+<pre><code>composer require lyrixx/lifestream:~1.1
 </code></pre>
 
 <h2 id="usage">Usage<a href="#usage" class="anchor">#</a></h2>
+
+<p>Lifestream library is ship with a factory to start very quickly:</p>
 
 <pre><code>&lt;?php
 
 $service = 'twitter';
 $username = 'lyrixx';
 
-$status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
+$stream = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
     -&gt;createLifestream($service, array($username))
     -&gt;addFilter(new Lyrixx\Lifestream\Filter\TwitterMention())
     -&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link())
@@ -117,8 +128,8 @@ $status = Lyrixx\Lifestream\LifestreamFactory::createNewInstance()
     -&gt;getStream()
 ;
 
-foreach ($status as $key =&gt; $value) {
-    echo $value.'&lt;br /&gt;';
+foreach ($stream as $status) {
+    echo $status.'&lt;br /&gt;';
 }
 </code></pre>
 
@@ -126,22 +137,53 @@ foreach ($status as $key =&gt; $value) {
 <a href="https://github.com/lyrixx/lifestream/blob/master/demo/index.php">demo/index.php</a>
 file.</p>
 
-<h2 id="filter">Filter<a href="#filter" class="anchor">#</a></h2>
+<h3 id="how-does-it-work-">How does it work?<a href="#how-does-it-work-" class="anchor">#</a></h3>
 
-<p>You could filter each status with some filters:</p>
+<p>There are 3 different actors:</p>
 
-<ul><li>remove mention from twitter stream</li>
-<li>remove RT from twitter stream</li>
-<li>...</li>
-</ul><h2 id="formatter">Formatter<a href="#formatter" class="anchor">#</a></h2>
+<ul><li><p>A Service (<code>ServiceInterface</code>): This one will fetch data from a web server and
+extract datas</p></li>
+<li><p>A Lifestream (<code>Lifestream</code>): This one will use a service to retrieve data and then it will
+create a collection of status</p></li>
+<li><p>A Status (<code>StatusInterface</code>): This is one item among others. It could be a
+tweet,   ...</p></li>
+</ul><p>After this bootstrap, you can add <code>FormatterInterface</code> to format all status and
+/ or add <code>FilterInterface</code> to filter un-wanted status.</p>
 
-<p>You could format each status with formatters:</p>
+<p>So, from scratch:</p>
 
-<ul><li>Transform a text link into an html link</li>
-<li>Transform an twitter mention into an html link</li>
-<li>Transform an twitter hashtag into an html link</li>
-<li>...</li>
-</ul><h2 id="integration">Integration<a href="#integration" class="anchor">#</a></h2>
+<pre><code>$service = new Lyrixx\Lifestream\Service\Twitter('lyrixx');
+
+$lifestream = Lyrixx\Lifestream\Lifestream($service);
+$lifestream-&gt;addFilter(new Lyrixx\Lifestream\Filter\TwitterMention());
+$lifestream-&gt;addFilter(new Lyrixx\Lifestream\Filter\TwitterRetweet());
+$lifestream-&gt;addFormatter(new Lyrixx\Lifestream\Formatter\Link());
+
+$lifestream-&gt;boot();
+$stream = $lifestream-&gt;getStream();
+
+foreach ($stream as $status) {
+    echo $status.'&lt;br /&gt;';
+}
+</code></pre>
+
+<h3 id="how-to-use-the-aggregate-service-">How to use the Aggregate service?<a href="#how-to-use-the-aggregate-service-" class="anchor">#</a></h3>
+
+<p>If you want to fetch and then merge few services, you can use the
+<code>Aggregate</code> service. It will automatically sort all status by date.</p>
+
+<p><strong>Note</strong>: This Aggregate service will download all source in parallel for extra
+speed!</p>
+
+<pre><code>$service1 = new Lyrixx\Lifestream\Service\Twitter('lyrixx');
+$service2 = new Lyrixx\Lifestream\Service\TwitterSearch('#symfony2');
+
+$service = new Lyrixx\Lifestream\Service\Aggregate(array($service1, $service2));
+
+// ...
+</code></pre>
+
+<h2 id="integration">Integration<a href="#integration" class="anchor">#</a></h2>
 
 <ul><li>With <a href="./silex-provider.html">Silex</a></li>
 <li>With <a href="./symfony2-bundle.html">Symfony2</a></li>
