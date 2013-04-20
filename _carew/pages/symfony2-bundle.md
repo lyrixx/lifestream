@@ -10,7 +10,7 @@ Installation
 
 #### Add package to your composer.json:
 
-    composer require lyrixx/lifestream-bundle:~1.0
+    composer require lyrixx/lifestream-bundle:~1.1
 
 #### Register the bundle in the kernel:
 
@@ -57,6 +57,8 @@ You can add some filters and/or formatters to a lifestream:
 
 You can find the list of service, filter, formatter available in `services.xml`.
 
+### Global configuration
+
 You can also add some formatters or filters to all services:
 
     lyrixx_lifestream:
@@ -75,6 +77,25 @@ You can also add some formatters or filters to all services:
                 service: twitter_search
                 args:
                     - "#silex"
+
+### Aggregate Service
+
+    lyrixx_lifestream:
+        lifestream:
+            twitter_symfony:
+                service: twitter_search
+                args:
+                    - "#symfony2"
+            twitter_silex:
+                service: twitter_search
+                args:
+                    - "#silex"
+            twitter_aggregate:
+                service: aggregate
+                args:
+                    - twitter_silex   # Same name as above
+                    - twitter_symfony # Same name as above
+
 
 Usage
 -----
@@ -95,8 +116,6 @@ service and then by tagging it **with an alias**:
 Some samples:
 
         <service id="lyrixx.lifestream.service.atom" class="%lyrixx.lifestream.service.atom.class%" abstract="true" public="false">
-            <argument /><!-- username -->
-            <argument type="service" id="lyrixx.lifestream.client" />
             <tag name="lyrixx.lifestream.service" alias="atom" />
         </service>
 
