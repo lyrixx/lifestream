@@ -5,11 +5,11 @@ namespace Lyrixx\Lifestream\Tests\Service;
 use Guzzle\Http\Client;
 use Lyrixx\Lifestream\Service\TwitterList;
 use Lyrixx\Lifestream\Service\TwitterSearch;
-use Lyrixx\Lifestream\Service\Agregate;
+use Lyrixx\Lifestream\Service\Aggregate;
 use Guzzle\Plugin\Mock\MockPlugin;
 use Guzzle\Http\Message\Response;
 
-class AgregateTest extends \PHPUnit_Framework_TestCase
+class AggregateTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetStatuses()
     {
@@ -22,7 +22,7 @@ class AgregateTest extends \PHPUnit_Framework_TestCase
         $client = new Client();
         $client->addSubscriber($mock);
 
-        $service = new Agregate(array(
+        $service = new Aggregate(array(
             new TwitterList('futurecat', 'sensio'),
             new TwitterSearch('symfony'),
         ));

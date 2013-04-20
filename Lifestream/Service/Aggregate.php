@@ -6,11 +6,11 @@ use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 
 /**
- * Agregate
+ * Aggregate
  *
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
-class Agregate implements ServiceInterface
+class Aggregate implements ServiceInterface
 {
     private $services;
     private $client;
