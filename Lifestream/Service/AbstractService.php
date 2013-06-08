@@ -56,7 +56,7 @@ abstract class AbstractService implements ServiceInterface
         }
 
         if (200 !== $this->response->getStatusCode()) {
-            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $feedUrl , $this->response->getStatusCode()));
+            throw new \RuntimeException(sprintf('Client faild with "%s". Status: "%s"', $this->feedUrl , $this->response->getStatusCode()));
         }
 
         $statuses = $this->extractRawStatuses($this->response->getBody());
