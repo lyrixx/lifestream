@@ -25,7 +25,7 @@ class Atom extends AbstractService
     /**
      * {@inheritdoc}
      */
-    protected function formatDatas($datas)
+    protected function formatDatas(\SimpleXMLElement $datas)
     {
         $link = $datas->link;
 

@@ -25,7 +25,7 @@ class Rss20 extends AbstractService
     /**
      * {@inheritdoc}
      */
-    protected function formatDatas($datas)
+    protected function formatDatas(\SimpleXMLElement $datas)
     {
         $categories = array();
         foreach ($datas->category as $category) {

@@ -30,7 +30,7 @@ class FlickrRss20 extends Rss20
     /**
      * {@inheritdoc}
      */
-    protected function formatDatas($datas)
+    protected function formatDatas(\SimpleXMLElement $datas)
     {
         $date = new \Datetime($datas->pubDate);
 

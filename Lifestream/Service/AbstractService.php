@@ -125,7 +125,7 @@ abstract class AbstractService implements ServiceInterface
      */
     public function prepareRequest()
     {
-        return $this->client->get($feedUrl = $this->getFeedUrl());
+        return $this->client->get($this->getFeedUrl());
     }
 
     /**

@@ -3,15 +3,16 @@
 namespace Lyrixx\Lifestream\Tests\Service;
 
 use Guzzle\Http\Client;
-use Guzzle\Plugin\Mock\MockPlugin;
 use Guzzle\Http\Message\Response;
+use Guzzle\Plugin\Mock\MockPlugin;
+use Lyrixx\Lifestream\Service\ServiceInterface;
 
 abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider getMetadataTest
      */
-    public function testMetadata($service, $feedUrl, $profileUrl, $name)
+    public function testMetadata(ServiceInterface $service, $feedUrl, $profileUrl, $name)
     {
         $this->assertEquals($feedUrl, $service->getFeedUrl());
         $this->assertEquals($profileUrl, $service->getProfileUrl());

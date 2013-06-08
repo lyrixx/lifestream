@@ -40,24 +40,24 @@ class LifestreamFactory
     /**
      * Create a Lifestream with a nammed service
      *
-     * @param string               $service    A service among LifestreamFactory::getSupportedServices
-     * @param string[]             $arguments  Arguments to give to service constructor
-     * @param FormatterInterface[] $filters    A collection of FormatterInterface
-     * @param FormatterInterface[] $formatters A collection of FormatterInterface
+     * @param string               $serviceName A service among LifestreamFactory::getSupportedServices
+     * @param string[]             $arguments   Arguments to give to service constructor
+     * @param FormatterInterface[] $filters     A collection of FormatterInterface
+     * @param FormatterInterface[] $formatters  A collection of FormatterInterface
      *
      * @return Lifestream A lifestream
      */
-    public function createLifestream($service, array $arguments = array(), array $filters = array(), array $formatters = array())
+    public function createLifestream($serviceName, array $arguments = array(), array $filters = array(), array $formatters = array())
     {
-        if (!array_key_exists($service, $this->services)) {
+        if (!array_key_exists($serviceName, $this->services)) {
             throw new \InvalidArgumentException(sprintf(
                 'Service "%s" not Found. Services supported: "%s"',
-                 $service,
+                 $serviceName,
                  implode('", "', $this->getSupportedServices())
             ));
         }
 
-        $reflect = new \ReflectionClass($this->services[$service]);
+        $reflect = new \ReflectionClass($this->services[$serviceName]);
         $service = $reflect->newInstanceArgs($arguments);
         $service->setClient($this->client);
 

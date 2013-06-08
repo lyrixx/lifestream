@@ -32,7 +32,7 @@ class TwitterSearch extends Atom
     /**
      * {@inheritdoc}
      */
-    protected function formatDatas($datas)
+    protected function formatDatas(\SimpleXMLElement $datas)
     {
         $links = array();
 
