@@ -30,6 +30,9 @@ function display($lifestream)
         foreach ($lifestream->boot()->getStream(8) as $status) {
             echo '<li>';
                 echo $status;
+                echo ' <a href="' . $status->getUrl() . '">';
+                    echo '»';
+                echo '</a>';
             echo '</li>';
         }
     echo '</ul>';
@@ -39,8 +42,12 @@ function display($lifestream)
 header('Content-Type: text/html; charset=utf-8');
 
 echo '<h1>LifeStream</h1>';
-display(get_lifestream('twitter', array('lyrixx')));
+$consumerKey = '...';
+$consumerSecret = '...';
+$accessToken = '...';
+$accessTokenSecret = '...';
 display(get_lifestream('github', array('lyrixx')));
 display(get_lifestream('atom', array('http://feeds.feedburner.com/lyrixblog')));
-display(get_lifestream('twitter_search', array('#symfony')));
-display(get_lifestream('twitter_list', array('futurecat', 'sensio')));
+display(get_lifestream('twitter', array($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, 'lyrixx')));
+display(get_lifestream('twitter_search', array($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, '#symfony2')));
+display(get_lifestream('twitter_list', array($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, 'futurecat', 'sensio')));

@@ -6,6 +6,7 @@ use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 use Guzzle\Plugin\Mock\MockPlugin;
 use Lyrixx\Lifestream\Service\ServiceInterface;
+use Lyrixx\Twitter\Twitter as TwitterSdk;
 
 abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +22,7 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 
     abstract public function getMetadataTest();
 
-    public function getClient($fixtureFilePath = null)
+    protected function getClient($fixtureFilePath = null)
     {
         if (null === $fixtureFilePath) {
             return $this->getMock('Guzzle\Http\Client');
@@ -38,4 +39,10 @@ abstract class AbstractTest extends \PHPUnit_Framework_TestCase
 
         return $client;
     }
+
+    protected function getTwitterSdK($fixtureFilePath = null)
+    {
+        return new TwitterSdk('consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret', null, null, $this->getClient($fixtureFilePath));
+    }
+
 }

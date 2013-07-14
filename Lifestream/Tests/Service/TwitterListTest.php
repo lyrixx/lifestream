@@ -8,29 +8,28 @@ class TwitterListTest extends AbstractTest
 {
     public function testGetStatuses()
     {
-        $service = new TwitterList('futurecat', 'sensio');
-        $service->setClient($this->getClient(__DIR__.'/Fixtures/TwitterList.json'));
+        $service = new TwitterList('consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret', 'futurecat', 'sensio', array(), $this->getTwitterSdK(__DIR__.'/Fixtures/TwitterList.json'));
 
         $statuses = $service->getStatuses();
-        $this->assertCount(12, $statuses);
+        $this->assertCount(20, $statuses);
 
-        $firstStatus = $statuses[0];
+        $firstStatus = reset($statuses);
         $this->assertInstanceOf('Lyrixx\Lifestream\Status\AdvancedStatus', $firstStatus);
-        $this->assertEquals('@lyrixx un autre jour ;)', $firstStatus->getText());
-        $this->assertEquals('https://twitter.com/futurecat/statuses/320926532933672961', $firstStatus->getUrl());
-        $this->assertEquals('2013-04-07', $firstStatus->getDate()->format('Y-m-d'));
-        $this->assertSame('futurecat', $firstStatus->getUsername());
-        $this->assertSame('Marc', $firstStatus->getFullname());
-        $this->assertSame('http://a0.twimg.com/profile_images/1153760106/Photo_du_62709773-10-___17.25_normal.jpg', $firstStatus->getPictureUrl());
-        $this->assertSame('https://twitter.com/futurecat', $firstStatus->getProfileUrl());
+        $this->assertEquals('Pour les différences de robe, œil bionique recommandé http://t.co/novD9DUWgz', $firstStatus->getText());
+        $this->assertEquals('https://twitter.com/laurentLC/statuses/356358506347122688', $firstStatus->getUrl());
+        $this->assertEquals('2013-07-14', $firstStatus->getDate()->format('Y-m-d'));
+        $this->assertSame('laurentLC', $firstStatus->getUsername());
+        $this->assertSame('LaurentLC', $firstStatus->getFullname());
+        $this->assertSame('http://a0.twimg.com/profile_images/3002876591/3a97957ac5f45c422b35689d5fdf4b40_normal.jpeg', $firstStatus->getPictureUrl());
+        $this->assertSame('https://twitter.com/laurentLC', $firstStatus->getProfileUrl());
     }
 
     public function getMetadataTest()
     {
         return array(
             array(
-                new TwitterList('futurecat', 'sensio', $this->getClient()),
-                'https://api.twitter.com/1/lists/statuses.json?owner_screen_name=futurecat&slug=sensio&include_entities=true',
+                new TwitterList('consumerKey', 'consumerSecret', 'accessToken', 'accessTokenSecret', 'futurecat', 'sensio', array(), $this->getTwitterSdK(__DIR__.'/Fixtures/TwitterList.json')),
+                'https://twitter.com/futurecat/sensio',
                 'https://twitter.com/futurecat/sensio',
                 'TwitterList',
             ),

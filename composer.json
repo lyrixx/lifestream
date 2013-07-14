@@ -15,6 +15,9 @@
     "require": {
         "guzzle/guzzle": "~3"
     },
+    "require-dev": {
+        "lyrixx/twitter-sdk": "0.*@dev"
+    },
     "autoload": {
         "psr-0": { "Lyrixx": "" }
     },

@@ -2,27 +2,31 @@
 
 namespace Lyrixx\Lifestream\Service;
 
-use Guzzle\Http\Client;
+use Lyrixx\Twitter\Twitter as TwitterSdk;
 
 /**
  * Fetch twitter feed
  */
-class Twitter extends Atom
+class Twitter extends TwitterSearch
 {
-    const FEED_URL    = 'https://search.twitter.com/search.atom?q=from%%3A%%40%s';
-    const PROFILE_URL = 'https://twitter.com/%s';
-
     /**
      * Constructor
      *
-     * @param string $username The twitter username
-     * @param Client $client   The client
+     * @param string     $consumerKey
+     * @param string     $consumerSecret
+     * @param string     $accessToken
+     * @param string     $accessTokenSecret
+     * @param string     $search
+     * @param array      $options
+     * @param TwitterSdk $twitterSdk
      */
-    public function __construct($username, Client $client = null)
+    public function __construct($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, $username, array $options = array(), TwitterSdk $twitterSdk = null)
     {
-        $feedUrl = sprintf(self::FEED_URL, $username);
-        $profileUrl = sprintf(self::PROFILE_URL, $username);
+        $username = 'from:@'.$username;
+        $options = array_replace(array(
+            'q' => $username,
+        ), $options);
 
-        parent::__construct($feedUrl, $profileUrl, $client);
+        parent::__construct($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, $username, $options, $twitterSdk);
     }
 }

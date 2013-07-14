@@ -3,60 +3,82 @@
 namespace Lyrixx\Lifestream\Service;
 
 use Guzzle\Http\Client;
+use Lyrixx\Twitter\Twitter as TwitterSdk;
 
 /**
  * Fetch twitter list
  */
 class TwitterList extends AbstractService
 {
-    const FEED_URL    = 'https://api.twitter.com/1/lists/statuses.json?owner_screen_name=%s&slug=%s&include_entities=true';
     const PROFILE_URL = 'https://twitter.com/%s';
-    const LIST_URL = 'https://twitter.com/%s/%s';
+    const FEED_URL    = 'https://twitter.com/%s/%s';
     const TWEET_URL   = 'https://twitter.com/%s/statuses/%s';
+
+    private $twitterSdk;
+    private $options;
 
     /**
      * Constructor
      *
-     * @param string $username The twitter username
-     * @param string $list     The twitter list name
-     * @param Client $client   The client
+     * @param string     $consumerKey
+     * @param string     $consumerSecret
+     * @param string     $accessToken
+     * @param string     $accessTokenSecret
+     * @param string     $username
+     * @param string     $list
+     * @param array      $options
+     * @param TwitterSdk $twitterSdk
      */
-    public function __construct($username, $list, Client $client = null)
+    public function __construct($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret, $username, $list, array $options = array(), TwitterSdk $twitterSdk = null)
     {
-        $feedUrl = sprintf(self::FEED_URL, $username, $list);
-        $profileUrl = sprintf(self::LIST_URL, $username, $list);
+        parent::__construct(sprintf(self::FEED_URL, $username, $list));
 
-        parent::__construct($feedUrl, $profileUrl, $client);
+       $this->options = array_replace(array(
+            'slug' => $list,
+            'owner_screen_name' => $username,
+        ), $options);
+
+        $this->twitterSdk = $twitterSdk ?: new TwitterSdk($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
         $this->setStatusClassname('Lyrixx\Lifestream\Status\AdvancedStatus');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function extractRawStatuses($datasTmp)
+    public function setClient(Client $client)
     {
-        $datas = array();
-        foreach (json_decode((string) $datasTmp, true) as $value) {
-            $datas[] = $this->formatDatas($value);
-        }
+        $this->twitterSdk->setClient($client);
+    }
 
-        return $datas;
+    public function prepareRequest()
+    {
+        return $this->twitterSdk->createRequest('GET', 'lists/statuses', $this->options);
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function formatDatas($datas)
+    protected function extractRawStatuses($dataTmp)
+    {
+        $data = array();
+        foreach (json_decode((string) $dataTmp, true) as $value) {
+            $data[] = $this->formatDatas($value);
+        }
+
+        return $data;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function formatDatas($data)
     {
         return array(
-            'text' => $datas['text'],
-            'url'  => sprintf(static::TWEET_URL, $datas['user']['screen_name'], $datas['id_str']),
-            'date' => new \Datetime($datas['created_at']),
-            'username' => $datas['user']['screen_name'],
-            'fullname' => $datas['user']['name'],
-            'pictureUrl' => $datas['user']['profile_image_url'],
-            'profileUrl' => sprintf(static::PROFILE_URL, $datas['user']['screen_name']),
+            'text' => $data['text'],
+            'url'  => sprintf(static::TWEET_URL, $data['user']['screen_name'], $data['id_str']),
+            'date' => new \Datetime($data['created_at']),
+            'username' => $data['user']['screen_name'],
+            'fullname' => $data['user']['name'],
+            'pictureUrl' => $data['user']['profile_image_url'],
+            'profileUrl' => sprintf(static::PROFILE_URL, $data['user']['screen_name']),
         );
     }
 }
