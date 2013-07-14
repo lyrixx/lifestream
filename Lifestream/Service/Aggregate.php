@@ -59,7 +59,7 @@ class Aggregate implements ServiceInterface
     {
         $requests = array();
         foreach ($this->services as $k => $service) {
-            $requests[$k] = $this->client->createRequest('GET', $service->getFeedUrl());
+            $requests[$k] = $service->prepareRequest();
         }
 
         $responses = $this->client->send($requests);
@@ -93,6 +93,10 @@ class Aggregate implements ServiceInterface
     public function setClient(Client $client)
     {
         $this->client = $client;
+
+        foreach ($this->services as $service) {
+            $service->setClient($client);
+        }
 
         return $this;
     }
