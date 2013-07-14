@@ -16,7 +16,10 @@
         "guzzle/guzzle": "~3"
     },
     "require-dev": {
-        "lyrixx/twitter-sdk": "0.*@dev"
+        "lyrixx/twitter-sdk": "~0.2@dev"
+    },
+    "suggest": {
+        "lyrixx/twitter-sdk": "A least in version 0.2, this lib add support for twitter"
     },
     "autoload": {
         "psr-0": { "Lyrixx": "" }
